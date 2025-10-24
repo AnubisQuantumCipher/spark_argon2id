@@ -4,6 +4,7 @@ description = "Pure SPARK Ada implementation of Argon2id (RFC 9106, version 0x13
 licenses = "Apache-2.0"
 authors = ["AnubisQuantumCipher <sic.tau@pm.me>"]
 maintainers = ["AnubisQuantumCipher <sic.tau@pm.me>"]
+maintainers-logins = ["AnubisQuantumCipher"]
 website = "https://github.com/AnubisQuantumCipher/spark_argon2id"
 tags = ["cryptography", "argon2", "password", "spark"]
 project-files = ["spark_argon2id.gpr"]
