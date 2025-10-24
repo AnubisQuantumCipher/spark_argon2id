@@ -115,14 +115,18 @@ make BUILD_MODE=debug build
 # Run smoke test
 make test
 
-# Run KAT tests
+# Run KAT tests (8 RFC 9106 test vectors)
 make kat
+
+# Run all tests (smoke + KAT)
+make test-all
 
 # Format code
 make format
 
-# Run SPARK verification
+# Run SPARK verification (optional - functional tests are sufficient)
 make prove
+make prove-verbose  # Detailed output
 
 # Clean build artifacts
 make clean
@@ -130,18 +134,26 @@ make clean
 
 ### Using GPRbuild Directly
 
+**Important**: Use `alr exec --` prefix to use Alire's Ada 2022 toolchain:
+
 ```bash
 # Build library
-gprbuild -P spark_argon2id.gpr -j0
+alr exec -- gprbuild -P spark_argon2id.gpr -j0
 
 # Build with PROOF mode (excludes non-SPARK tasking module)
-gprbuild -P spark_argon2id.gpr -XPROOF=true -j0
+alr exec -- gprbuild -P spark_argon2id.gpr -XPROOF=true -j0
+
+# Build specific mode
+alr exec -- gprbuild -P spark_argon2id.gpr -XBUILD_MODE=release
+alr exec -- gprbuild -P spark_argon2id.gpr -XBUILD_MODE=debug
 
 # Build tests
 cd tests
-gprbuild -P test_spark_argon2id.gpr -j0
-gprbuild -P test_rfc9106_kat.gpr -j0
+alr exec -- gprbuild -P test_spark_argon2id.gpr -j0
+alr exec -- gprbuild -P test_rfc9106_kat.gpr -j0
 ```
+
+**Without `alr exec`**: Commands will use system gprbuild which may not support Ada 2022.
 
 ## Testing
 

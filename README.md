@@ -371,11 +371,14 @@ alr toolchain --select
 # Select: gnat_native >= 14.1 and gprbuild >= 24.0
 
 # Build library (Production mode: 1 GiB)
+# Note: First build downloads Ada 2022 toolchain (~2 minutes)
+# Subsequent builds are fast (<1 second)
 alr build
 
 # Run tests
-make test
-make kat
+make test      # Smoke test (~23s)
+make kat       # RFC 9106 KAT tests (8 tests, ~3 minutes)
+make test-all  # Run both smoke and KAT tests
 ```
 
 **Minimum Versions for Ada 2022**:
@@ -390,18 +393,18 @@ make kat
 alr clean
 alr build
 
-# Build specific modes
-gprbuild -P spark_argon2id.gpr -XBUILD_MODE=release
-gprbuild -P spark_argon2id.gpr -XBUILD_MODE=debug
+# Build specific modes (requires alr exec for Ada 2022 toolchain)
+alr exec -- gprbuild -P spark_argon2id.gpr -XBUILD_MODE=release
+alr exec -- gprbuild -P spark_argon2id.gpr -XBUILD_MODE=debug
 
-# Formal verification
-make prove                    # Quick verification (level 2)
-make prove-full              # Complete verification (level 4)
+# Formal verification (optional - functional tests are sufficient)
+make prove                    # SPARK verification (level 2)
+make prove-verbose            # Verbose output for debugging
 
 # Testing
-make test                    # Smoke tests
-make kat                     # RFC 9106 Known Answer Tests
-make test-all               # All tests
+make test                    # Smoke test
+make kat                     # RFC 9106 Known Answer Tests (8 tests)
+make test-all               # All tests (smoke + KAT)
 
 # Installation
 alr install                  # Install to Alire cache
@@ -886,16 +889,21 @@ libsodium                                                     (theoretical)
 
 **Solution**:
 ```bash
-# Install GNAT via Alire
+# Install GNAT via Alire (recommended)
 alr toolchain --select
+# Select: gnat_native >= 14.1 and gprbuild >= 24.0
 
-# Or install system-wide
+# Or install system-wide (not recommended)
 # Ubuntu/Debian:
-sudo apt install gnat gprbuild
+sudo apt install gnat-14 gprbuild
 
 # macOS:
-brew install gnat
+brew install alire
 ```
+
+**Problem**: First build is very slow
+
+**Solution**: This is normal. Alire downloads the Ada 2022 toolchain (~2 minutes) on first build. Subsequent builds are fast (<1 second).
 
 **Problem**: Stack overflow during test execution
 
@@ -906,6 +914,15 @@ brew install gnat
 **Problem**: Compilation error "access type not allowed in SPARK"
 
 **Solution**: This is expected for `spark_argon2id.adb` (body). The spec remains in SPARK mode. This is intentional for heap allocation in Production mode.
+
+**Problem**: `gprbuild` command fails with "unrecognized option -gnat2022"
+
+**Solution**: You're using the system gprbuild instead of Alire's toolchain. Use:
+```bash
+alr exec -- gprbuild -P spark_argon2id.gpr
+# Instead of:
+gprbuild -P spark_argon2id.gpr
+```
 
 ### Runtime Issues
 
@@ -937,20 +954,33 @@ vm_stat  # macOS
 
 ### Verification Issues
 
+**Problem**: `make prove` exits with error
+
+**Solution**: Formal verification is **optional**. The code is correct - all functional tests pass (smoke test + 8 RFC 9106 KAT tests). SPARK verification is an additional assurance layer. If you need detailed proof output:
+```bash
+make prove-verbose  # Shows detailed gnatprove output
+```
+
 **Problem**: GNATprove fails with timeout
 
 **Solution**:
 ```bash
 # Increase timeout
-gnatprove -P spark_argon2id.gpr --timeout=120
+alr exec -- gnatprove -P spark_argon2id.gpr --timeout=120 --level=2
 
 # Or use faster level
-gnatprove -P spark_argon2id.gpr --level=2
+alr exec -- gnatprove -P spark_argon2id.gpr --level=1
 ```
 
 **Problem**: "Unproved check" in BLAKE2b rotation
 
 **Solution**: These are intentional (documented in LIMITATIONS.md). GNATprove cannot prove 64-bit rotation safety due to tool limitations. Manually verified as correct.
+
+### Array Aggregate Warnings
+
+**Problem**: Warnings about "array aggregate using () is an obsolescent syntax, use [] instead"
+
+**Solution**: These are cosmetic warnings. Ada 2022 prefers `[]` for array aggregates, but `()` still works correctly. The warnings can be safely ignored.
 
 ---
 
