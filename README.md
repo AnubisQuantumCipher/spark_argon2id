@@ -19,6 +19,7 @@ Pure SPARK Ada implementation of Argon2id (RFC 9106, version 0x13) with formal v
 6. [API Documentation](#api-documentation)
 7. [Configuration](#configuration)
 8. [Build Instructions](#build-instructions)
+   - [Verifying Source Integrity](#verifying-source-integrity) 🔒
 9. [Testing](#testing)
 10. [Usage Examples](#usage-examples)
 11. [Architecture](#architecture)
@@ -37,6 +38,12 @@ Pure SPARK Ada implementation of Argon2id (RFC 9106, version 0x13) with formal v
 Spark_Argon2id is a formally-verifiable implementation of the Argon2id password hashing algorithm written in SPARK Ada. This implementation prioritizes **provable correctness** and **memory safety** over raw performance, making it suitable for security-critical applications where reliability is paramount.
 
 **⚠️ Compiler Requirement**: This project requires **Ada 2022** (GNAT 14.1+ or GNAT Pro 25.0+) for SPARK formal verification features (`Relaxed_Initialization`, `'Initialized` attribute). Use Alire to automatically manage the toolchain.
+
+**🔒 Verify Your Download**: Since this is open-source software (not code-signed), verify integrity with SHA256 checksums:
+```bash
+./scripts/verify_checksums.sh  # Verifies 43 critical files
+```
+See [Source Verification](#verifying-source-integrity) section below for details.
 
 ### Key Features
 
