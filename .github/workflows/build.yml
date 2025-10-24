@@ -19,7 +19,7 @@ jobs:
       - name: Setup Alire
         uses: alire-project/setup-alire@v2
         with:
-          toolchain: gnat_native^14 gprbuild^24
+          toolchain: gnat_native gprbuild
 
       - name: Display environment
         run: |
@@ -61,7 +61,7 @@ jobs:
       - name: Setup Alire with GNATprove
         uses: alire-project/setup-alire@v2
         with:
-          toolchain: gnat_native^14 gprbuild^24 gnatprove^14
+          toolchain: gnat_native gprbuild gnatprove
 
       - name: Run SPARK verification
         run: alr exec -- gnatprove -P spark_argon2id.gpr -XPROOF=true --level=2 --timeout=60 --report=all || true
