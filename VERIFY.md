@@ -234,10 +234,11 @@ This creates a new `SHA256SUMS` file with current checksums and metadata:
 
 ### Why Not Code Signing?
 
-Code signing certificates are expensive ($300-500/year) and provide limited value for open-source projects where:
+For open-source projects:
 - Source code is public and reviewable
 - Builds are reproducible (Alire + deterministic compiler)
 - Checksums provide equivalent tamper detection
+- SHA256 verification is industry-standard for source distribution
 
 ### Threat Model
 

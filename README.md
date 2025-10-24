@@ -39,11 +39,21 @@ Spark_Argon2id is a formally-verifiable implementation of the Argon2id password 
 
 **⚠️ Compiler Requirement**: This project requires **Ada 2022** (GNAT 14.1+ or GNAT Pro 25.0+) for SPARK formal verification features (`Relaxed_Initialization`, `'Initialized` attribute). Use Alire to automatically manage the toolchain.
 
-**🔒 Verify Your Download**: Since this is open-source software (not code-signed), verify integrity with SHA256 checksums:
+**🔒 Verify Your Download**: This open-source software provides SHA256 checksums for integrity verification:
+
 ```bash
-./scripts/verify_checksums.sh  # Verifies 43 critical files
+# Automated verification (43 files)
+./scripts/verify_checksums.sh
+
+# Manual verification - Core files:
+# src/spark_argon2id.ads
+3a3216addda47f74741a604417a5bd2e831584ad3646c2ba9c57bb992464765a
+
+# src/spark_argon2id.adb
+d8b12ceede5bc49caf18a08b1adbc8404614e3b95bb7dfa03b44cf3d90475fb7
+
+# Full checksums: See SHA256SUMS file or verification section below
 ```
-See [Source Verification](#verifying-source-integrity) section below for details.
 
 ### Key Features
 
@@ -390,10 +400,10 @@ make test-all  # Run both smoke and KAT tests
 
 ### Verifying Source Integrity
 
-**Since this is open-source software (not code-signed), verify with SHA256 checksums:**
+**Verify integrity with SHA256 checksums:**
 
 ```bash
-# Verify all source files (recommended before first use)
+# Automated verification (all 43 files)
 ./scripts/verify_checksums.sh
 
 # Expected output:
@@ -401,15 +411,44 @@ make test-all  # Run both smoke and KAT tests
 # All files verified. Source integrity confirmed.
 ```
 
-This verifies 43 critical files including:
-- All Ada source code (26 files)
-- Build system (GPR, Alire manifest, Makefile)
-- Documentation (README, BUILDING, LICENSE)
-- Test harnesses and scripts
+**Key File Checksums** (Git commit: cb7d13d, Generated: 2025-10-24):
+
+```
+# Core API
+3a3216addda47f74741a604417a5bd2e831584ad3646c2ba9c57bb992464765a  src/spark_argon2id.ads
+d8b12ceede5bc49caf18a08b1adbc8404614e3b95bb7dfa03b44cf3d90475fb7  src/spark_argon2id.adb
+
+# BLAKE2b Implementation
+c8a92f8c506fc40bfb6866c669a6b3243648f1798d354a16c99b82c5e3da003f  src/spark_argon2id-blake2b.ads
+6ddfafbd05fffe43c4c2833eee0148c9d2190b955e9d926e5816deb849f6b90a  src/spark_argon2id-blake2b.adb
+
+# Build System
+9572664b72d8cf61e024e7fa46494165f9300684c5212753e6bfea57de1fca91  spark_argon2id.gpr
+34ddf1f204614b7211aac3d051fd43dc1d0aeab9af31cd4ff782735687d8d6e3  alire.toml
+9fdd7b2fc54abddbed59a490c8fefca484729829aba8cdd6e9620e20a17071ae  Makefile
+```
+
+**Manual Verification**:
+```bash
+# macOS
+shasum -a 256 src/spark_argon2id.ads
+
+# Linux
+sha256sum src/spark_argon2id.ads
+
+# Compare output against hash above
+```
+
+**Files Verified** (43 total):
+- 26 Ada source files (all cryptographic code)
+- 3 build files (GPR, alire.toml, Makefile)
+- 4 documentation files
+- 4 test harnesses
+- 6 utility scripts
 
 **⚠️ If verification fails**: Delete and re-download from official repository.
 
-**For more details**: See [VERIFY.md](VERIFY.md) for complete verification documentation.
+**Complete verification guide**: See [VERIFY.md](VERIFY.md) and [SHA256SUMS](SHA256SUMS).
 
 **Minimum Versions for Ada 2022**:
 - GNAT FSF 14.1+ (released 2024)
