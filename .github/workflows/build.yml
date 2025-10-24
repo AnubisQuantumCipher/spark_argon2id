@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-test:
-    name: Build and Test (Production 1 GiB)
+    name: "Build and Test (Production 1 GiB)"
     runs-on: ubuntu-latest
 
     steps:
@@ -30,7 +30,7 @@ jobs:
           alr toolchain
           echo ""
 
-      - name: Build library (Production mode 1 GiB)
+      - name: "Build library (Production mode 1 GiB)"
         run: alr build -- -XBUILD_MODE=release -XPROOF=false
 
       - name: Run smoke test
