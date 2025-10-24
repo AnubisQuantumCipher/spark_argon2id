@@ -30,17 +30,14 @@ jobs:
           alr toolchain
           echo ""
 
-      - name: Build library (Production mode: 1 GiB)
-        run: |
-          alr build -- -XBUILD_MODE=release -XPROOF=false
+      - name: Build library (Production mode 1 GiB)
+        run: alr build -- -XBUILD_MODE=release -XPROOF=false
 
       - name: Run smoke test
-        run: |
-          make test
+        run: make test
 
       - name: Run RFC 9106 KAT tests
-        run: |
-          make kat
+        run: make kat
 
       - name: Upload build artifacts
         if: success()
@@ -52,11 +49,10 @@ jobs:
             lib/
           retention-days: 7
 
-  # Optional: Formal verification job (runs on SPARK modules only)
   verify:
     name: SPARK Formal Verification
     runs-on: ubuntu-latest
-    continue-on-error: true  # Non-blocking since main body is non-SPARK
+    continue-on-error: true
 
     steps:
       - name: Checkout repository
@@ -68,8 +64,7 @@ jobs:
           toolchain: gnat_native^14 gprbuild^24 gnatprove^14
 
       - name: Run SPARK verification
-        run: |
-          alr exec -- gnatprove -P spark_argon2id.gpr -XPROOF=true --level=2 --timeout=60 --report=all || true
+        run: alr exec -- gnatprove -P spark_argon2id.gpr -XPROOF=true --level=2 --timeout=60 --report=all || true
 
       - name: Upload proof results
         if: always()
