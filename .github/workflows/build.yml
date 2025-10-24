@@ -58,10 +58,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Alire with GNATprove
+      - name: Setup Alire
         uses: alire-project/setup-alire@v2
         with:
-          toolchain: gnat_native gprbuild gnatprove
+          toolchain: gnat_native gprbuild
+
+      - name: Install GNATprove dependency
+        run: alr build --validation
 
       - name: Run SPARK verification
         run: alr exec -- gnatprove -P spark_argon2id.gpr -XPROOF=true --level=2 --timeout=60 --report=all || true
