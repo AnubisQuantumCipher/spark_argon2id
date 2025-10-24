@@ -36,6 +36,8 @@ Pure SPARK Ada implementation of Argon2id (RFC 9106, version 0x13) with formal v
 
 Spark_Argon2id is a formally-verifiable implementation of the Argon2id password hashing algorithm written in SPARK Ada. This implementation prioritizes **provable correctness** and **memory safety** over raw performance, making it suitable for security-critical applications where reliability is paramount.
 
+**⚠️ Compiler Requirement**: This project requires **Ada 2022** (GNAT 14.1+ or GNAT Pro 25.0+) for SPARK formal verification features (`Relaxed_Initialization`, `'Initialized` attribute). Use Alire to automatically manage the toolchain.
+
 ### Key Features
 
 - **RFC 9106 Compliance**: Bit-for-bit compatible with Argon2id version 0x13
@@ -344,19 +346,29 @@ Argon2_Verification_Mode : constant Argon2_Verification_Preset := Production;
 
 | Component | Version | Purpose | Notes |
 |-----------|---------|---------|-------|
-| **GNAT FSF** | 13.1+ | Ada compiler (free) | Ada 2012 support required |
-| **GNAT Pro** | 24.0+ | Ada compiler (commercial) | Ada 2012 support required |
-| **GPRbuild** | 22.0+ | Build system | Must support Ada 2012 |
-| **Alire** | 2.0+ | Package manager (recommended) | Manages dependencies |
+| **GNAT FSF** | 14.1+ | Ada compiler (free) | **Ada 2022 required** for SPARK features |
+| **GNAT Pro** | 25.0+ | Ada compiler (commercial) | **Ada 2022 required** for SPARK features |
+| **GPRbuild** | 24.0+ | Build system | Must support Ada 2022 |
+| **Alire** | 2.0+ | Package manager (recommended) | Manages toolchain |
 | **GNATprove** | 14.0+ | Formal verification (optional) | For SPARK proofs |
 | **Make** | 3.8+ | Build automation (optional) | For test targets |
 
-### Quick Start with Alire
+### Quick Start with Alire (Recommended)
+
+**Note**: This project requires Ada 2022. Alire automatically manages the toolchain.
 
 ```bash
+# Install Alire (if needed)
+# macOS: brew install alire
+# Linux: See https://alire.ada.dev/docs/#installation
+
 # Clone repository
 git clone https://github.com/AnubisQuantumCipher/spark_argon2id.git
 cd spark_argon2id
+
+# Let Alire set up Ada 2022 toolchain
+alr toolchain --select
+# Select: gnat_native >= 14.1 and gprbuild >= 24.0
 
 # Build library (Production mode: 1 GiB)
 alr build
@@ -365,6 +377,11 @@ alr build
 make test
 make kat
 ```
+
+**Minimum Versions for Ada 2022**:
+- GNAT FSF 14.1+ (released 2024)
+- GPRbuild 24.0+
+- GNATprove 14.0+ (for verification)
 
 ### Build Targets
 

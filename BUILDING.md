@@ -4,26 +4,78 @@ This document describes how to build and test the spark_argon2id implementation.
 
 ## Language Standard
 
-**Ada 2012** - This project uses Ada 2012 (SPARK subset) for maximum compiler compatibility.
+**Ada 2022** - This project requires Ada 2022 for SPARK formal verification features.
 
-- Compile flag: `-gnat2012`
-- Compatible with GNAT FSF 13.1+, GNAT Pro 24.0+
-- GPRbuild 22.0+ with Ada 2012 support
+- Compile flag: `-gnat2022`
+- **Required features**: `Relaxed_Initialization` aspect, `'Initialized` attribute
+- These features are essential for proving output parameter initialization in SPARK
 
-**Note**: Previous versions used Ada 2022 syntax which required newer compilers. The codebase has been converted to Ada 2012 for broader compatibility while maintaining full SPARK verification.
+**Why Ada 2022 is Required**:
+
+The codebase uses SPARK 2022 features that are critical for formal verification:
+
+```ada
+procedure Block_To_Bytes (
+   Input  : Block;
+   Output : out Byte_Array
+) with
+   Relaxed_Initialization => Output,  -- Ada 2022 SPARK feature
+   Post => Output'Initialized;         -- Ada 2022 attribute
+```
+
+These features allow GNATprove to verify that output parameters are fully initialized, which is impossible to prove in Ada 2012. Since formal verification is a core goal of this project, Ada 2022 is non-negotiable.
 
 ## Prerequisites
 
 ### Required
 
-- **GNAT FSF 13.1+** or **GNAT Pro 24.0+** (with Ada 2012 support)
-- **GPRbuild 22.0+** (build system with Ada 2012 support)
-- **Alire 2.0+** (recommended package manager)
+- **GNAT FSF 14.1+** or **GNAT Pro 25.0+** (with Ada 2022 and SPARK 2022 support)
+- **GPRbuild 24.0+** (build system with Ada 2022 support)
+- **Alire 2.0+** (recommended - automatically manages Ada 2022 toolchain)
 
 ### Optional
 
 - **GNATprove 14.0+** (for formal verification - Gold certification)
 - **gnatformat** (for code formatting)
+
+### Installing Ada 2022 Toolchain
+
+**Recommended: Use Alire**
+
+Alire automatically installs and manages the correct Ada 2022 toolchain:
+
+```bash
+# Install Alire (if not already installed)
+# macOS:
+brew install alire
+
+# Linux:
+curl -L https://github.com/alire-project/alire/releases/latest/download/alr-x86_64-linux.zip -o alr.zip
+unzip alr.zip && sudo mv bin/alr /usr/local/bin/
+
+# Select Ada 2022-capable toolchain
+cd spark_argon2id
+alr toolchain --select
+
+# Alire will automatically download and configure:
+# - GNAT FSF 14.1+ (with Ada 2022 support)
+# - GPRbuild 24.0+
+# - All required dependencies
+```
+
+**Manual Installation** (not recommended):
+
+If you prefer manual installation, ensure you have:
+- GNAT FSF 14.1+ (released 2024) or GNAT Pro 25.0+
+- GPRbuild 24.0+ with Ada 2022 support
+- Compiler must support `-gnat2022` flag
+
+Verify your toolchain:
+```bash
+gnatmake --version  # Should show 14.1 or higher
+gprbuild --version  # Should show 24.0 or higher
+gcc -gnat2022 --version  # Should not error
+```
 
 ## Quick Start
 
