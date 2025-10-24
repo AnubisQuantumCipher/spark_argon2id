@@ -381,6 +381,29 @@ make kat       # RFC 9106 KAT tests (8 tests, ~3 minutes)
 make test-all  # Run both smoke and KAT tests
 ```
 
+### Verifying Source Integrity
+
+**Since this is open-source software (not code-signed), verify with SHA256 checksums:**
+
+```bash
+# Verify all source files (recommended before first use)
+./scripts/verify_checksums.sh
+
+# Expected output:
+# ✅ VERIFICATION SUCCESSFUL
+# All files verified. Source integrity confirmed.
+```
+
+This verifies 43 critical files including:
+- All Ada source code (26 files)
+- Build system (GPR, Alire manifest, Makefile)
+- Documentation (README, BUILDING, LICENSE)
+- Test harnesses and scripts
+
+**⚠️ If verification fails**: Delete and re-download from official repository.
+
+**For more details**: See [VERIFY.md](VERIFY.md) for complete verification documentation.
+
 **Minimum Versions for Ada 2022**:
 - GNAT FSF 14.1+ (released 2024)
 - GPRbuild 24.0+
