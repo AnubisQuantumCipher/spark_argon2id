@@ -80,10 +80,10 @@ is
    --    - Output length unchanged (128 words)
    --
    --  **Example** (Argon2id memory filling):
-   --    Prev_Block := Memory[lane][position - 1]
-   --    Ref_Block  := Memory[lane][Index_Function(position)]
+   --    Prev_Block := Memory(lane)(position - 1)
+   --    Ref_Block  := Memory(lane)(Index_Function(position))
    --    New_Block  := G(Prev_Block, Ref_Block)
-   --    Memory[lane][position] := New_Block
+   --    Memory(lane)(position) := New_Block
    --
    --  **Source**: RFC 9106 Section 3.5, Figure 6
 

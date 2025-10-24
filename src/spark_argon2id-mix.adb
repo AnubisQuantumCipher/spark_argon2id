@@ -151,11 +151,11 @@ is
    --  **Reference C Implementation** (phc-winner-argon2/src/ref.c):
    --    First loop (row-wise):
    --      for i in 0..7:
-   --        BLAKE2_ROUND_NOMSG(R[16*i], R[16*i+1], ..., R[16*i+15])
+   --        BLAKE2_ROUND_NOMSG(R(16*i), R(16*i+1), ..., R(16*i+15))
    --
    --    Second loop (column-wise):
    --      for i in 0..7:
-   --        BLAKE2_ROUND_NOMSG(R[2*i], R[2*i+1], R[2*i+16], R[2*i+17], ...)
+   --        BLAKE2_ROUND_NOMSG(R(2*i), R(2*i+1), R(2*i+16), R(2*i+17), ...)
    --
    --  **Source**: RFC 9106 Section 3.5-3.6
 

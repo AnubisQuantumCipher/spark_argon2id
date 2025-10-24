@@ -15,13 +15,13 @@ is
    --  @param Value  32-bit unsigned integer
    --  @return       4 bytes in little-endian order
    --
-   --  Example: LE32(0x12345678) = [0x78, 0x56, 0x34, 0x12]
+   --  Example: LE32(0x12345678) = (0x78, 0x56, 0x34, 0x12)
    --
    function LE32 (Value : U32) return Byte_Array is
-     [1 => U8 (Value and 16#FF#),
+     (1 => U8 (Value and 16#FF#),
       2 => U8 (Interfaces.Shift_Right (Value, 8) and 16#FF#),
       3 => U8 (Interfaces.Shift_Right (Value, 16) and 16#FF#),
-      4 => U8 (Interfaces.Shift_Right (Value, 24) and 16#FF#)]
+      4 => U8 (Interfaces.Shift_Right (Value, 24) and 16#FF#))
    with
       Global => null,
       Post   => LE32'Result'Length = 4;
@@ -48,7 +48,7 @@ is
       --  Allocate Input buffer to exact size:
       --    10 parameters * 4 bytes = 40 bytes + |P| + |S| + |K| + |X|
       Input_Length : constant Natural := 40 + Password'Length + Salt'Length + Key'Length + Associated_Data'Length;
-      Input        : Byte_Array (1 .. Input_Length) := [others => 0];
+      Input        : Byte_Array (1 .. Input_Length) := (others => 0);
 
       --  Current write position in Input buffer
       Offset : Natural := 1;
@@ -58,7 +58,7 @@ is
       AD_Len  : constant U32 := U32 (Associated_Data'Length);
    begin
       --  Initialize output to zero (fail-closed)
-      H0_Out := [others => 0];
+      H0_Out := (others => 0);
 
       --  1. LE32(p)
       Input (Offset .. Offset + 3) := LE32 (U32 (Parallelism));
@@ -168,7 +168,7 @@ is
 
    exception
       when others =>
-         H0_Out := [others => 0];
+         H0_Out := (others => 0);
          Spark_Argon2id.Zeroize.Wipe (Input);
          raise;
    end Compute_H0;

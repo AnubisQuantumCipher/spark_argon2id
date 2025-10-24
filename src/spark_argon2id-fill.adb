@@ -42,7 +42,7 @@ is
 
    --  Calculate previous block index with wraparound
    --
-   --  RFC 9106 Section 3.1.2: prev = Memory[l, (i - 1) mod lane_length]
+   --  RFC 9106 Section 3.1.2: prev = Memory(l, (i - 1) mod lane_length)
    --
    --  For segment s, block i:
    --    current_index = s × segment_size + i
@@ -51,9 +51,9 @@ is
    --  Special case: First block of lane (i=0, s=0)
    --    Wraps to last block of lane
    --
-   --  @param Segment Current segment [0..3]
-   --  @param Index Block index within segment [0..segment_size)
-   --  @return Previous block index [0..Active_Blocks_Per_Lane)
+   --  @param Segment Current segment (0..3)
+   --  @param Index Block index within segment (0..segment_size)
+   --  @return Previous block index (0..Active_Blocks_Per_Lane)
    function Calculate_Prev_Index (
       Segment : Segment_Index;
       Index   : Natural
@@ -87,9 +87,9 @@ is
 
    --  Calculate current block index (where we're writing)
    --
-   --  @param Segment Current segment [0..3]
-   --  @param Index Block index within segment [0..segment_size)
-   --  @return Absolute block index [0..Active_Blocks_Per_Lane)
+   --  @param Segment Current segment (0..3)
+   --  @param Index Block index within segment (0..segment_size)
+   --  @return Absolute block index (0..Active_Blocks_Per_Lane)
    function Calculate_Current_Index (
       Segment : Segment_Index;
       Index   : Natural
@@ -155,17 +155,17 @@ is
       --  RFC 9106 Section 3.1.2: Main Memory-Filling Loop
       --  ================================================================
       --
-      --  For each pass r ∈ [0, t):
-      --    For each segment s ∈ [0, 3]:
-      --      For each lane l ∈ [0, p):
+      --  For each pass r ∈ (0, t):
+      --    For each segment s ∈ (0, 3):
+      --      For each lane l ∈ (0, p):
       --        For each block index i in segment:
-      --          Process block at [l, s × segment_size + i]
+      --          Process block at (l, s × segment_size + i)
 
       --  Initialize position
       Pos := Initial_Position;
 
       --  ================================================================
-      --  Pass Loop: Iterate over all passes [0..t)
+      --  Pass Loop: Iterate over all passes (0..t)
       --  ================================================================
       --  SparkPass: t = 4 (four passes over memory)
 
@@ -245,20 +245,20 @@ is
                --  For current config (p=2): Ref_Lane ∈ {0,1} based on hybrid indexing
 
                --  Step 2: Get previous block
-               --  prev = Memory[l, (s × segment_size + i - 1) mod lane_length]
+               --  prev = Memory(l, (s × segment_size + i - 1) mod lane_length)
                Prev_Index := Calculate_Prev_Index (Segment, Index);
                pragma Assert (Prev_Index in Block_Index);
                Prev_Block := Memory (Lane, Prev_Index);
 
                --  Step 3: Get reference block
-               --  ref = Memory[ref_lane, ref_index] (RFC 9106 Section 3.1.2)
-               --  Ref_Lane ∈ [0..Parallelism-1] computed by hybrid indexing
+               --  ref = Memory(ref_lane, ref_index) (RFC 9106 Section 3.1.2)
+               --  Ref_Lane ∈ (0..Parallelism-1) computed by hybrid indexing
                Ref_Block := Memory (Ref_Lane, Ref_Index);
                pragma Assert (Prev_Block'First = 0 and Prev_Block'Last = 127);
                pragma Assert (Ref_Block'First = 0 and Ref_Block'Last = 127);
 
                --  Step 4: Compute new block
-               --  Memory[l, s × segment_size + i] ← G(prev ⊕ ref, Memory[l, s × segment_size + i])
+               --  Memory(l, s × segment_size + i) ← G(prev ⊕ ref, Memory(l, s × segment_size + i))
                --
                --  RFC 9106 Section 3.5: G(X, Y) = P(X ⊕ Y) ⊕ X ⊕ Y
                --  For memory filling:
@@ -276,8 +276,8 @@ is
 
                --  Apply G mixing function
                --  RFC 9106 Section 3.1.2:
-               --    Pass 0:  B[i][j] = G(prev ⊕ ref)
-               --    Pass 1+: B[i][j] = G(prev ⊕ ref) ⊕ B[i][j]
+               --    Pass 0:  B(i)(j) = G(prev ⊕ ref)
+               --    Pass 1+: B(i)(j) = G(prev ⊕ ref) ⊕ B(i)(j)
                G (
                   X      => Prev_Block,
                   Y      => Ref_Block,
@@ -312,8 +312,8 @@ is
    --
    --  **Refinement Goal**:
    --  After Fill_Memory completes, Memory matches what Fill_All_Spec
-   --  would compute starting from the initial memory state (with B[0]
-   --  and B[1] already initialized).
+   --  would compute starting from the initial memory state (with B(0)
+   --  and B(1) already initialized).
    --
    --  **Structural Equivalence** (RFC 9106 Section 3.1.2):
    --  1. Loop structure identical: pass→segment→lane→block

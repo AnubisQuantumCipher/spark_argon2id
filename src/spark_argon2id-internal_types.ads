@@ -47,13 +47,13 @@ private package Spark_Argon2id.Internal_Types is
    Block_Size_Words : constant := 128;
 
    --  Parallelism: Number of lanes
-   --  RFC 9106 Section 3.2: p ∈ [1, 2^24)
+   --  RFC 9106 Section 3.2: p ∈ (1, 2^24)
    --  spark_argon2id uses p=2 lanes (configurable via Argon2_Parallelism constant)
    Parallelism : constant Positive :=
      Positive (Argon2_Parallelism);
 
    --  Iterations: Number of passes over memory (RFC 9106 Section 3.2)
-   --  RFC 9106 Section 3.2: t ∈ [1, 2^32)
+   --  RFC 9106 Section 3.2: t ∈ (1, 2^32)
    --  spark_argon2id uses t=4 (from config)
    Iterations : constant Positive :=
      Positive (Argon2_Iterations);
@@ -97,20 +97,20 @@ private package Spark_Argon2id.Internal_Types is
    --  Bounded Index Types (100% Provable Bounds)
    ------------------------------------------------------------
 
-   --  Lane index: i ∈ [0, p) (RFC 9106 Section 3.2)
+   --  Lane index: i ∈ (0, p) (RFC 9106 Section 3.2)
    --  For spark_argon2id: p=2, so lanes 0 and 1 exist
    subtype Lane_Index is Natural range 0 .. Parallelism - 1;
 
-   --  Block index within lane: j ∈ [0, q) (RFC 9106 Section 3.2)
+   --  Block index within lane: j ∈ (0, q) (RFC 9106 Section 3.2)
    subtype Block_Index is Natural range 0 .. Active_Blocks_Per_Lane - 1;
 
-   --  Segment index: s ∈ [0, 3] (RFC 9106 Section 3.3)
+   --  Segment index: s ∈ (0, 3) (RFC 9106 Section 3.3)
    subtype Segment_Index is Natural range 0 .. Sync_Points - 1;
 
-   --  Pass index: r ∈ [0, t) (RFC 9106 Section 3.2)
+   --  Pass index: r ∈ (0, t) (RFC 9106 Section 3.2)
    subtype Pass_Index is Natural range 0 .. Iterations - 1;
 
-   --  Word index within block: ∈ [0, 127]
+   --  Word index within block: ∈ (0, 127)
    subtype Block_Word_Index is Natural range 0 .. Block_Size_Words - 1;
 
    ------------------------------------------------------------
@@ -131,7 +131,7 @@ private package Spark_Argon2id.Internal_Types is
       Alignment   => 8;
 
    --  Zero block constant (for initialization and zeroization)
-   Zero_Block : constant Block := [others => 0];
+   Zero_Block : constant Block := (others => 0);
 
    ------------------------------------------------------------
    --  Modular Arithmetic Type (Overflow-Free)
@@ -169,13 +169,13 @@ private package Spark_Argon2id.Internal_Types is
    --       for Segment in 0 .. 3 loop
    --          for Lane in 0 .. p-1 loop
    --             for Index in segment_start .. segment_end loop
-   --                -- Fill block at [Lane][Index]
+   --                -- Fill block at (Lane)(Index)
    --
    --  Position tracks all four loop indices.
    type Position is record
-      Pass    : Pass_Index    := 0;  -- Current pass [0, t)
-      Segment : Segment_Index := 0;  -- Current segment [0, 3]
-      Lane    : Lane_Index    := 0;  -- Current lane [0, p)
+      Pass    : Pass_Index    := 0;  -- Current pass (0, t)
+      Segment : Segment_Index := 0;  -- Current segment (0, 3)
+      Lane    : Lane_Index    := 0;  -- Current lane (0, p)
       Index   : Natural       := 0;  -- Block index within segment
    end record;
 

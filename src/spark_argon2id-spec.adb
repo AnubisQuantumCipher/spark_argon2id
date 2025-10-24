@@ -663,7 +663,7 @@ is
    is
       --  RFC 9106 Section 3.4: Finalization
       --
-      --  1. XOR last block of each lane together: C = B[0][q-1] ⊕ B[1][q-1] ⊕ ...
+      --  1. XOR last block of each lane together: C = B(0)(q-1) ⊕ B(1)(q-1) ⊕ ...
       --  2. Convert C to byte array (1024 bytes)
       --  3. Hash to desired tag length: Tag = H'(C, Tag_Length)
 
@@ -731,7 +731,7 @@ is
         Password, Salt, Key, Assoc_Data,
         Parallelism, Tag_Length, Memory_KiB, Iterations);
 
-      --  Step 2: Initialize memory with B[i][0] and B[i][1]
+      --  Step 2: Initialize memory with B(i)(0) and B(i)(1)
       M : Abstract_Memory := Initial_Memory;
 
       --  For initialization: H₀ || LE32(block_index) || LE32(lane)
@@ -753,7 +753,7 @@ is
       for Lane in Lane_Index loop
          Lane_U32 := U32 (Lane);
 
-         --  Initialize B[lane][0] = H'(H0 || LE32(0) || LE32(lane))
+         --  Initialize B(lane)(0) = H'(H0 || LE32(0) || LE32(lane))
          Index_U32 := 0;
 
          --  Append LE32(index) at bytes 65-68
@@ -790,7 +790,7 @@ is
 
          M := Set_Block (M, Lane, 0, Init_Block);
 
-         --  Initialize B[lane][1] = H'(H0 || LE32(1) || LE32(lane))
+         --  Initialize B(lane)(1) = H'(H0 || LE32(1) || LE32(lane))
          Index_U32 := 1;
 
          --  Update LE32(index) at bytes 65-68

@@ -111,7 +111,7 @@ private package Spark_Argon2id.Index is
    --  - Current index within segment (can see earlier blocks)
    --  - Whether referencing same lane or different lane
    --
-   --  Pass 0, Segment 0: Can only reference blocks [0..Index-1]
+   --  Pass 0, Segment 0: Can only reference blocks (0..Index-1)
    --  Pass 0, Segment 1+: Can reference all prior segments + current progress
    --  Pass 1+: Can reference almost entire lane (except current segment being filled)
    --
@@ -140,9 +140,9 @@ private package Spark_Argon2id.Index is
    --
    --  RFC 9106 Section 3.4.2: Non-uniform mapping that favors recent blocks:
    --
-   --    x = J₁²  / 2³²                      [Square and normalize]
-   --    y = (reference_area_size × x) / 2³²  [Scale to area]
-   --    z = reference_area_size - 1 - y      [Invert to favor recent]
+   --    x = J₁²  / 2³²                      (Square and normalize)
+   --    y = (reference_area_size × x) / 2³²  (Scale to area)
+   --    z = reference_area_size - 1 - y      (Invert to favor recent)
    --
    --  This creates locality of reference (cache-friendly).
    --
@@ -156,7 +156,7 @@ private package Spark_Argon2id.Index is
    --
    --  @param J1 Lower 32 bits of pseudo-random value
    --  @param Reference_Area_Size Number of referenceable blocks
-   --  @return Relative position within [0, Reference_Area_Size)
+   --  @return Relative position within (0, Reference_Area_Size)
    function Map_J1_To_Position (
       J1                  : U32;
       Reference_Area_Size : Reference_Area_Size_Type
@@ -177,7 +177,7 @@ private package Spark_Argon2id.Index is
    --  @param Index Block index within current segment
    --  @param Relative_Position Relative offset from start_position
    --  @param Same_Lane Whether referencing same lane
-   --  @return Absolute block index within lane [0, Active_Blocks_Per_Lane)
+   --  @return Absolute block index within lane (0, Active_Blocks_Per_Lane)
    function Calculate_Ref_Index (
       Pos               : Position;
       Index             : Natural;
@@ -216,14 +216,14 @@ private package Spark_Argon2id.Index is
    --  Initialize address generator for current segment
    --
    --  RFC 9106 Section 3.4.1.1: Initialize input block Z with:
-   --    Z[0] = r  (pass number)
-   --    Z[1] = l  (lane number)
-   --    Z[2] = sl (slice/segment number)
-   --    Z[3] = m' (total memory blocks)
-   --    Z[4] = t  (total passes)
-   --    Z[5] = y  (Argon2 type: 2 for Argon2id)
-   --    Z[6] = 0  (counter, incremented by next_addresses)
-   --    Z[7..127] = 0
+   --    Z(0) = r  (pass number)
+   --    Z(1) = l  (lane number)
+   --    Z(2) = sl (slice/segment number)
+   --    Z(3) = m' (total memory blocks)
+   --    Z(4) = t  (total passes)
+   --    Z(5) = y  (Argon2 type: 2 for Argon2id)
+   --    Z(6) = 0  (counter, incremented by next_addresses)
+   --    Z(7..127) = 0
    --
    --  Then pre-generates the first address block (indices 0-127).
    --  Reference: "Don't forget to generate the first block of addresses"
@@ -253,17 +253,17 @@ private package Spark_Argon2id.Index is
    --  Get next pseudo-random value from address generator
    --
    --  RFC 9106 Section 3.4.1.1: Returns value from address_block at Index.
-   --  Reference implementation: pseudo_rand = address_block.v[i % 128]
+   --  Reference implementation: pseudo_rand = address_block.v(i % 128)
    --
    --  When Index % 128 == 0, generates new address block via:
    --
-   --    input_block.v[6]++  (increment counter)
+   --    input_block.v(6)++  (increment counter)
    --    address_block = G(zero_block, input_block)
    --    address_block = G(zero_block, address_block)  (double application)
    --
    --  @param State Address generator state (modified: address block regenerated as needed)
    --  @param Index Block index within segment (used to index address_block)
-   --  @param Pseudo_Rand Pseudo-random value at address_block[Index % 128] (output)
+   --  @param Pseudo_Rand Pseudo-random value at address_block(Index % 128) (output)
    procedure Get_Next_Pseudo_Rand (
       State       : in out Address_Generator_State;
       Index       : Natural;

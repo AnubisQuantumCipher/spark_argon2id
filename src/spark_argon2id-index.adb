@@ -303,13 +303,13 @@ is
    begin
       --  RFC 9106 Section 3.4.1.1: Initialize input block Z
       --
-      --  Z[0] = r  (pass number)
-      --  Z[1] = l  (lane number)
-      --  Z[2] = sl (slice/segment number)
-      --  Z[3] = m' (total memory blocks)
-      --  Z[4] = t  (total passes)
-      --  Z[5] = y  (Argon2 type: 2 for Argon2id)
-      --  Z[6..127] = 0 (will be incremented by next_addresses)
+      --  Z(0) = r  (pass number)
+      --  Z(1) = l  (lane number)
+      --  Z(2) = sl (slice/segment number)
+      --  Z(3) = m' (total memory blocks)
+      --  Z(4) = t  (total passes)
+      --  Z(5) = y  (Argon2 type: 2 for Argon2id)
+      --  Z(6..127) = 0 (will be incremented by next_addresses)
 
       State.Input_Block := Zero_Block;  -- Initialize all to zero
       State.Address_Block := Zero_Block; -- Ensure OUT address block initialized
@@ -360,7 +360,7 @@ is
       Block_Offset     : Block_Word_Index;
    begin
       --  Calculate offset within address block
-      --  Reference implementation: pseudo_rand = address_block.v[i % ARGON2_ADDRESSES_IN_BLOCK]
+      --  Reference implementation: pseudo_rand = address_block.v(i % ARGON2_ADDRESSES_IN_BLOCK)
       Block_Offset := Index mod Block_Size_Words;
 
       --  Check if we need to generate new addresses
@@ -390,7 +390,7 @@ is
       end if;
 
       --  Return address value at Index position
-      --  Reference: pseudo_rand = address_block.v[i % ARGON2_ADDRESSES_IN_BLOCK]
+      --  Reference: pseudo_rand = address_block.v(i % ARGON2_ADDRESSES_IN_BLOCK)
       Pseudo_Rand := State.Address_Block (Block_Offset);
    end Get_Next_Pseudo_Rand;
 
@@ -426,7 +426,7 @@ is
       --  Get pseudo-random value based on mode
       if Mode = Data_Independent then
          --  Argon2i: Get from address generator using block index
-         --  Reference: pseudo_rand = address_block.v[i % ARGON2_ADDRESSES_IN_BLOCK]
+         --  Reference: pseudo_rand = address_block.v(i % ARGON2_ADDRESSES_IN_BLOCK)
          Get_Next_Pseudo_Rand (Address_State, Index, Pseudo_Rand);
 
          --  Side-channel proof: Argon2i has data-independent access patterns

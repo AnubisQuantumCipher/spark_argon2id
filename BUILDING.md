@@ -2,17 +2,27 @@
 
 This document describes how to build and test the spark_argon2id implementation.
 
+## Language Standard
+
+**Ada 2012** - This project uses Ada 2012 (SPARK subset) for maximum compiler compatibility.
+
+- Compile flag: `-gnat2012`
+- Compatible with GNAT FSF 13.1+, GNAT Pro 24.0+
+- GPRbuild 22.0+ with Ada 2012 support
+
+**Note**: Previous versions used Ada 2022 syntax which required newer compilers. The codebase has been converted to Ada 2012 for broader compatibility while maintaining full SPARK verification.
+
 ## Prerequisites
 
 ### Required
 
-- **GNAT FSF 13.1+** or **GNAT Pro 24.0+**
-- **GPRbuild** (build system)
-- **Alire** (recommended package manager)
+- **GNAT FSF 13.1+** or **GNAT Pro 24.0+** (with Ada 2012 support)
+- **GPRbuild 22.0+** (build system with Ada 2012 support)
+- **Alire 2.0+** (recommended package manager)
 
 ### Optional
 
-- **GNATprove** (for formal verification - Gold certification)
+- **GNATprove 14.0+** (for formal verification - Gold certification)
 - **gnatformat** (for code formatting)
 
 ## Quick Start
@@ -91,6 +101,17 @@ Basic functionality test with hardcoded inputs:
 cd tests
 ./run_smoke.sh
 ```
+
+### Memory Leak Testing
+
+Cross-platform memory profiling (works on macOS and Linux):
+
+```bash
+cd tests
+./profile_memory.sh 5
+```
+
+Expected: Constant memory usage across iterations (~1.0-1.1 GB for Production mode).
 
 ### RFC 9106 Known Answer Tests (KAT)
 

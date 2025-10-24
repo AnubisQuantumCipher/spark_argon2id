@@ -9,14 +9,14 @@ with Spark_Argon2id.Internal_Types; use Spark_Argon2id.Internal_Types;
 --  **Purpose**: Main memory-hard loop for Argon2id password hashing
 --
 --  **Algorithm** (RFC 9106 Section 3.1.2):
---    For each pass r ∈ [0, t):
---      For each lane l ∈ [0, p):
---        For each segment s ∈ [0, 3]:
+--    For each pass r ∈ (0, t):
+--      For each lane l ∈ (0, p):
+--        For each segment s ∈ (0, 3):
 --          For each block index i in segment:
 --            1. ref_lane, ref_index ← Calculate_Reference(r, l, s, i)
---            2. prev ← Memory[l, (s × segment_size + i - 1) mod lane_length]
---            3. ref ← Memory[ref_lane, ref_index]
---            4. Memory[l, s × segment_size + i] ← G(prev ⊕ ref, Memory[l, s × segment_size + i])
+--            2. prev ← Memory(l, (s × segment_size + i - 1) mod lane_length)
+--            3. ref ← Memory(ref_lane, ref_index)
+--            4. Memory(l, s × segment_size + i) ← G(prev ⊕ ref, Memory(l, s × segment_size + i))
 --
 --  **SparkPass Configuration**:
 --    - Parallelism p = 2 (two lanes)
@@ -26,10 +26,10 @@ with Spark_Argon2id.Internal_Types; use Spark_Argon2id.Internal_Types;
 --    - Active_Blocks_Per_Lane = 16384 (Test_Medium mode)
 --
 --  **Memory Layout** (Two Lanes):
---    Pass 0: Fill all blocks in both lanes [Lane 0 and Lane 1][0..16383]
---      - Each lane has Segment 0-3: Blocks [0..4095], [4096..8191], [8192..12287], [12288..16383]
+--    Pass 0: Fill all blocks in both lanes (Lane 0 and Lane 1)(0..16383)
+--      - Each lane has Segment 0-3: Blocks (0..4095), (4096..8191), (8192..12287), (12288..16383)
 --      - Blocks 0-1 initialized by Init, rest filled during first pass
---    Pass 1-3: Re-process all blocks [0..16383] in both lanes
+--    Pass 1-3: Re-process all blocks (0..16383) in both lanes
 --
 --  **Verification Strategy**:
 --    - Memory represented as flat array indexed by Block_Index
@@ -75,7 +75,7 @@ is
    --    Memory : Memory state (modified in-place)
    --
    --  **Preconditions**:
-   --    - Memory[0] and Memory[1] already initialized (by Generate_Initial_Blocks)
+   --    - Memory(0) and Memory(1) already initialized (by Generate_Initial_Blocks)
    --
    --  **Postconditions**:
    --    - All memory blocks have been processed
@@ -90,7 +90,7 @@ is
    --          - end_idx = Active_Blocks_Per_Segment (4096)
    --
    --  **Memory Access Pattern**:
-   --    For each block at position [segment × segment_size + index]:
+   --    For each block at position (segment × segment_size + index):
    --      - Read previous block (with wraparound)
    --      - Read reference block (computed by Calculate_Reference)
    --      - Write new block (G mixing function applied)

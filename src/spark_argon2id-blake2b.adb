@@ -35,15 +35,15 @@ is
    --  These functions convert between byte arrays and U64 words.
 
    --  Pack 8 bytes into U64 (little-endian)
-   --  In little-endian, bytes [0,1,2,3,4,5,6,7] encode a U64 as:
-   --  U64 = byte[0] + (byte[1] << 8) + (byte[2] << 16) + ... + (byte[7] << 56)
+   --  In little-endian, bytes (0,1,2,3,4,5,6,7) encode a U64 as:
+   --  U64 = byte(0) + (byte(1) << 8) + (byte(2) << 16) + ... + (byte(7) << 56)
    function LE_Pack (Bytes : Byte_Array) return U64
    with
      Global => null,
      Pre    => Bytes'Length = 8
    is
    begin
-      --  Little-endian: byte[0] is LSB, byte[7] is MSB
+      --  Little-endian: byte(0) is LSB, byte(7) is MSB
       --  Build result by placing each byte at its correct position
       return U64 (Bytes (Bytes'First + 0))              or
              Shift_Left (U64 (Bytes (Bytes'First + 1)), 8)  or
@@ -134,14 +134,14 @@ is
    --  plus two message words (x,y), and updates the work vector.
    --
    --  RFC 7693 Section 3.1:
-   --    v[a] := (v[a] + v[b] + x) mod 2^64
-   --    v[d] := (v[d] ^ v[a]) >>> 32
-   --    v[c] := (v[c] + v[d]) mod 2^64
-   --    v[b] := (v[b] ^ v[c]) >>> 24
-   --    v[a] := (v[a] + v[b] + y) mod 2^64
-   --    v[d] := (v[d] ^ v[a]) >>> 16
-   --    v[c] := (v[c] + v[d]) mod 2^64
-   --    v[b] := (v[b] ^ v[c]) >>> 63
+   --    v(a) := (v(a) + v(b) + x) mod 2^64
+   --    v(d) := (v(d) ^ v(a)) >>> 32
+   --    v(c) := (v(c) + v(d)) mod 2^64
+   --    v(b) := (v(b) ^ v(c)) >>> 24
+   --    v(a) := (v(a) + v(b) + y) mod 2^64
+   --    v(d) := (v(d) ^ v(a)) >>> 16
+   --    v(c) := (v(c) + v(d)) mod 2^64
+   --    v(b) := (v(b) ^ v(c)) >>> 63
 
    procedure G
      (V          : in out Work_Vector;
@@ -197,8 +197,8 @@ is
          "V might not be initialized",
          "GNATprove 14.1.1 conservative analysis of large array initialization. " &
          "V is fully initialized in the loop at lines 205-209 before first use. " &
-         "RFC 7693 Section 3.2 specifies initialization: v[0..7] := h[0..7], " &
-         "v[8..15] := IV[0..7]. All 16 elements initialized before mixing rounds. " &
+         "RFC 7693 Section 3.2 specifies initialization: v(0..7) := h(0..7), " &
+         "v(8..15) := IV(0..7). All 16 elements initialized before mixing rounds. " &
          "Validated by KAT tests covering all Blake2b code paths.");
 
       M : Message_Words;
@@ -214,8 +214,8 @@ is
       M := Bytes_To_Words (Block);
 
       --  Initialize work vector (RFC 7693 Section 3.2)
-      --  v[0..7] := h[0..7]
-      --  v[8..15] := IV[0..7]
+      --  v(0..7) := h(0..7)
+      --  v(8..15) := IV(0..7)
       for I in 0 .. 7 loop
          pragma Loop_Optimize (No_Unroll);
          V (I) := State (I);
@@ -252,7 +252,7 @@ is
       end loop;
 
       --  Finalization: XOR work vector into state (RFC 7693 Section 3.2)
-      --  h[i] := h[i] ^ v[i] ^ v[i+8]
+      --  h(i) := h(i) ^ v(i) ^ v(i+8)
       for I in 0 .. 7 loop
          pragma Loop_Optimize (No_Unroll);
          State (I) := State (I) xor V (I) xor V (I + 8);
@@ -279,7 +279,7 @@ is
       pragma Annotate (GNATprove, Intentional,
          "State might not be initialized",
          "State is fully initialized in loop at lines 274-276 before first use. " &
-         "RFC 7693 Section 2.5: h[0] := IV[0] XOR param_block, h[1..7] := IV[1..7]. " &
+         "RFC 7693 Section 2.5: h(0) := IV(0) XOR param_block, h(1..7) := IV(1..7). " &
          "All 8 state words initialized before compression.");
 
       Block   : Block_Type;
@@ -292,7 +292,7 @@ is
       Remaining : Natural;
    begin
       --  Initialize state (RFC 7693 Section 2.5)
-      --  h[0] := IV[0] ^ parameter_block
+      --  h(0) := IV(0) ^ parameter_block
       --  Parameter block (little-endian bytes): nn=64, kk=0, fanout=1, depth=1
       --  As U64 (little-endian): bytes 40 00 01 01 00 00 00 00 = 0x0000000001010040
       State (0) := IV (0) xor 16#0000000001010040#;
@@ -303,7 +303,7 @@ is
       --  Handle empty message specially
       if Message'Length = 0 then
          --  Empty block (all zeros)
-         Block := [others => 0];
+         Block := (others => 0);
          Compress (State, Block, 0, True);
          Output := Words_To_Bytes (State);
          return;
@@ -331,14 +331,14 @@ is
 
       if Remaining > 0 then
          --  Copy final block (partial or complete) and pad if needed
-         Block := [others => 0];
+         Block := (others => 0);
          Block (1 .. Remaining) := Message (Offset .. Message'Last);
          Compress (State, Block, U64 (Message'Length), True);
       else
          --  This case should never occur after the loop fix above,
          --  but we keep it for defensive programming. It would only
          --  execute if Message'Length = 0, which is handled earlier.
-         Block := [others => 0];
+         Block := (others => 0);
          Compress (State, Block, U64 (Message'Length), True);
       end if;
 
@@ -391,7 +391,7 @@ is
 
       --  Handle empty message specially
       if Message'Length = 0 then
-         Block := [others => 0];
+         Block := (others => 0);
          Compress (State, Block, 0, True);
          declare
             Full_Output : constant Hash_Type := Words_To_Bytes (State);
@@ -421,11 +421,11 @@ is
       Remaining := Message'Last - Offset + 1;
 
       if Remaining > 0 then
-         Block := [others => 0];
+         Block := (others => 0);
          Block (1 .. Remaining) := Message (Offset .. Message'Last);
          Compress (State, Block, U64 (Message'Length), True);
       else
-         Block := [others => 0];
+         Block := (others => 0);
          Compress (State, Block, U64 (Message'Length), True);
       end if;
 

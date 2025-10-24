@@ -21,7 +21,7 @@ project SparkArgon2Id is
       case Mode is
          when "debug" =>
             for Default_Switches ("Ada") use (
-               "-gnat2022",    -- Ada 2022 standard
+               "-gnat2012",    -- Ada 2012 standard (SPARK compatible)
                "-gnatwa",      -- All warnings
                -- "-gnatwe",   -- Treat warnings as errors (disabled)
                "-gnata",       -- Enable assertions
@@ -33,7 +33,7 @@ project SparkArgon2Id is
             );
          when "release" =>
             for Default_Switches ("Ada") use (
-               "-gnat2022",
+               "-gnat2012",    -- Ada 2012 standard (SPARK compatible)
                "-gnatwa",
                -- "-gnatwe",   -- Treat warnings as errors (disabled)
                "-gnatp",       -- Suppress ALL runtime checks (for tests, not proof)

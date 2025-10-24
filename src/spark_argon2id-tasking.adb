@@ -119,12 +119,12 @@ package body Spark_Argon2id.Tasking is
       Output   : out Spark_Argon2id.Key_Array;
       Success  : out Boolean)
    is
-      H0 : Spark_Argon2id.Byte_Array (1 .. 64) := [others => 0];
-      Memory : Memory_State := [others => [others => Zero_Block]];
+      H0 : Spark_Argon2id.Byte_Array (1 .. 64) := (others => 0);
+      Memory : Memory_State := (others => (others => Zero_Block));
       Final_Output : Spark_Argon2id.Byte_Array (1 .. 32);
-      Empty : constant Spark_Argon2id.Byte_Array := [];
+      Empty : constant Spark_Argon2id.Byte_Array (1 .. 0) := (others => 0);
    begin
-      Output := [others => 0];
+      Output := (others => 0);
       Success := False;
 
       Compute_H0 (
@@ -161,7 +161,7 @@ package body Spark_Argon2id.Tasking is
       Spark_Argon2id.Zeroize.Wipe (Final_Output);
    exception
       when others =>
-         Output := [others => 0];
+         Output := (others => 0);
          Success := False;
          Spark_Argon2id.Zeroize.Wipe (H0);
          Spark_Argon2id.Zeroize.Wipe (Final_Output);
@@ -179,10 +179,10 @@ package body Spark_Argon2id.Tasking is
       Parallelism_Requested : Interfaces.Unsigned_32;
       Success         : out Boolean)
    is
-      H0 : Spark_Argon2id.Byte_Array (1 .. 64) := [others => 0];
-      Memory : Memory_State := [others => [others => Zero_Block]];
+      H0 : Spark_Argon2id.Byte_Array (1 .. 64) := (others => 0);
+      Memory : Memory_State := (others => (others => Zero_Block));
    begin
-      Output := [others => 0];
+      Output := (others => 0);
       Success := False;
 
       Compute_H0 (
@@ -217,7 +217,7 @@ package body Spark_Argon2id.Tasking is
       Spark_Argon2id.Zeroize.Wipe (H0);
    exception
       when others =>
-         Output := [others => 0];
+         Output := (others => 0);
          Success := False;
          Spark_Argon2id.Zeroize.Wipe (H0);
          raise;

@@ -16,13 +16,13 @@ is
    --  **Why Expression Function**: Zero VCs, compile-time verification
    --  **Inline**: Optimized to direct constant folding
    --
-   --  **Example**: LE32(1024) = [0x00, 0x04, 0x00, 0x00]
+   --  **Example**: LE32(1024) = (0x00, 0x04, 0x00, 0x00)
 
    function LE32 (Value : Unsigned_32) return Byte_Array is
-     [1 => U8 (Value and 16#FF#),
+     (1 => U8 (Value and 16#FF#),
       2 => U8 (Shift_Right (Value, 8) and 16#FF#),
       3 => U8 (Shift_Right (Value, 16) and 16#FF#),
-      4 => U8 (Shift_Right (Value, 24) and 16#FF#)]
+      4 => U8 (Shift_Right (Value, 24) and 16#FF#))
    with
       Global => null,
       Post   => LE32'Result'Length = 4,
@@ -40,11 +40,11 @@ is
    --    Simply hash (LE32(tau) || Input) and truncate
    --
    --  Case 2: tau > 64 (long output, e.g., 1024-byte block)
-   --    V_1 = Blake2b-512(LE32(tau) || Input)    [64 bytes]
-   --    V_2 = Blake2b-512(V_1[0..31])             [64 bytes, use 32]
-   --    V_3 = Blake2b-512(V_2[0..31])             [64 bytes, use 32]
+   --    V_1 = Blake2b-512(LE32(tau) || Input)    (64 bytes)
+   --    V_2 = Blake2b-512(V_1(0..31))             (64 bytes, use 32)
+   --    V_3 = Blake2b-512(V_2(0..31))             (64 bytes, use 32)
    --    ...
-   --    Output = V_1 || V_2[0..31] || V_3[0..31] || ...
+   --    Output = V_1 || V_2(0..31) || V_3(0..31) || ...
    --
    --  **Example for tau = 1024**:
    --    - V_1 contributes 64 bytes
@@ -64,11 +64,11 @@ is
       Output        : out Byte_Array
    ) is
       --  Current hash value (64 bytes, matches Blake2b.Hash_Type)
-      V : Byte_Array (1 .. 64) := [others => 0];
+      V : Byte_Array (1 .. 64) := (others => 0);
 
       --  Buffer for building Blake2b input
       --  Max size: LE32(tau) (4 bytes) + Input (1024 bytes) = 1028 bytes
-      Input_Buffer : Byte_Array (1 .. 1028) := [others => 0];
+      Input_Buffer : Byte_Array (1 .. 1028) := (others => 0);
 
       --  Offset for writing to output
       Out_Offset : Natural range 0 .. 4096 := 0;
@@ -81,7 +81,7 @@ is
 
    begin
       --  Initialize output to safe default
-      Output := [others => 0];
+      Output := (others => 0);
 
       if Output_Length <= 64 then
          ------------------------------------------------------------
@@ -115,7 +115,7 @@ is
 
          --  Copy V_1 (first 32 bytes only, per phc-winner-argon2 reference)
          --  NOTE: RFC 9106 Section 3.3 notation is ambiguous, but reference impl
-         --  copies V_1[0..31], not all 64 bytes
+         --  copies V_1(0..31), not all 64 bytes
          Output (Output'First .. Output'First + 31) := V (1 .. 32);
          Out_Offset := 32;
 

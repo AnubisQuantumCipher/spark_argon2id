@@ -46,17 +46,17 @@ is
    --  @param Value  64-bit unsigned integer
    --  @return       8 bytes in little-endian order
    --
-   --  Example: LE64(0x123456789ABCDEF0) = [0xF0, 0xDE, 0xBC, 0x9A, 0x78, 0x56, 0x34, 0x12]
+   --  Example: LE64(0x123456789ABCDEF0) = (0xF0, 0xDE, 0xBC, 0x9A, 0x78, 0x56, 0x34, 0x12)
    --
    function LE64 (Value : U64) return Byte_Array is
-     [1 => U8 (Value and 16#FF#),
+     (1 => U8 (Value and 16#FF#),
       2 => U8 (Interfaces.Shift_Right (Value, 8) and 16#FF#),
       3 => U8 (Interfaces.Shift_Right (Value, 16) and 16#FF#),
       4 => U8 (Interfaces.Shift_Right (Value, 24) and 16#FF#),
       5 => U8 (Interfaces.Shift_Right (Value, 32) and 16#FF#),
       6 => U8 (Interfaces.Shift_Right (Value, 40) and 16#FF#),
       7 => U8 (Interfaces.Shift_Right (Value, 48) and 16#FF#),
-      8 => U8 (Interfaces.Shift_Right (Value, 56) and 16#FF#)]
+      8 => U8 (Interfaces.Shift_Right (Value, 56) and 16#FF#))
    with
       Global => null,
       Post   => LE64'Result'Length = 8;
@@ -104,10 +104,10 @@ is
       --  Block structure: 128 x U64 words
       --  Output structure: 1024 bytes
       --
-      --  Block[0] → Output[1..8]
-      --  Block[1] → Output[9..16]
+      --  Block(0) → Output(1..8)
+      --  Block(1) → Output(9..16)
       --  ...
-      --  Block[127] → Output[1017..1024]
+      --  Block(127) → Output(1017..1024)
 
       for Word_Index in Block_Word_Index loop
          pragma Loop_Invariant (Output'First = 1 and Output'Last = 1024);
@@ -118,7 +118,7 @@ is
 
          declare
             --  Calculate byte positions for this word
-            --  Word_Index in [0..127], so Start_Pos in [0..1016]
+            --  Word_Index in (0..127), so Start_Pos in (0..1016)
             subtype Start_Pos_Range is Natural range 0 .. 1016;
             Start_Pos : constant Start_Pos_Range := Word_Index * 8;
             Byte_0_Pos : constant Positive := 1 + Start_Pos;
@@ -147,8 +147,8 @@ is
       end loop;
 
       --  After loop: All 128 words processed (Block_Word_Index range is 0..127)
-      --  Loop invariant proves bytes [1..Word_Index*8+8] are initialized
-      --  For Word_Index = 127: bytes [1..127*8+8] = [1..1024] are all initialized
+      --  Loop invariant proves bytes (1..Word_Index*8+8) are initialized
+      --  For Word_Index = 127: bytes (1..127*8+8) = (1..1024) are all initialized
       --  SPARK should be able to prove this from the loop invariant without assumptions
 
    end Block_To_Bytes;
@@ -175,8 +175,8 @@ is
       ------------------------------------------------------------
 
       --  RFC 9106 Section 3.1.3:
-      --    "C ← Memory[0][lane_length-1]" (for p=1)
-      --    "C ← Memory[0][q-1] ⊕ Memory[1][q-1]" (for p=2, SparkPass case)
+      --    "C ← Memory(0)(lane_length-1)" (for p=1)
+      --    "C ← Memory(0)(q-1) ⊕ Memory(1)(q-1)" (for p=2, SparkPass case)
       --
       Extract_Final_Block (Memory, Final_Block);
       pragma Assert (Final_Block'First = 0 and Final_Block'Last = 127);
@@ -200,7 +200,7 @@ is
       --  For SparkPass: Output_Length = 32 bytes
       --
       --  Since Output_Length < 64, this uses single Blake2b call:
-      --    H'(32, C) = Blake2b-512(LE32(32) || C)[0..31]
+      --    H'(32, C) = Blake2b-512(LE32(32) || C)(0..31)
 
       pragma Assert (Final_Block_Bytes'Length = Block_Size_Bytes);
 

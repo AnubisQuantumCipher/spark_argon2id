@@ -61,7 +61,7 @@ is
 
    --  Block type (must match Internal_Types.Block)
    type Block is array (Block_Word_Index) of U64;
-   Zero_Block : constant Block := [others => 0];
+   Zero_Block : constant Block := (others => 0);
 
    --  Position type (must match Internal_Types.Position)
    type Position is record
@@ -184,7 +184,7 @@ is
    --    ...
    --    Vᵣ = Blake2b^64(Vᵣ₋₁)
    --    Vᵣ₊₁ = Blake2b^(T - 32*r)(Vᵣ)
-   --    H′^T(A) = V₁[0..31] || V₂[0..31] || ... || Vᵣ₊₁[0..T-32*r-1]
+   --    H′^T(A) = V₁(0..31) || V₂(0..31) || ... || Vᵣ₊₁(0..T-32*r-1)
    --
    --  **Semantics**: Deterministic expansion to arbitrary output length
    function HPrime_Spec
@@ -259,8 +259,8 @@ is
    --  **RFC 9106 Section 3.4 Semantic Definition**:
    --  For each block index i in segment s:
    --    1. Select reference block z using Index_{i|d}_Spec
-   --    2. Compute: B[l][i] = G(B[l][i-1], B[l'][z])
-   --    3. If r > 0: B[l][i] = B[l][i] ⊕ B_old[l][i]
+   --    2. Compute: B(l)(i) = G(B(l)(i-1), B(l')(z))
+   --    3. If r > 0: B(l)(i) = B(l)(i) ⊕ B_old(l)(i)
    --
    --  **Parameters**:
    --    M: Current memory state
@@ -299,7 +299,7 @@ is
    --  Extract final tag from memory
    --
    --  **RFC 9106 Section 3.4 Definition**:
-   --    C = B[0][q-1] ⊕ B[1][q-1] ⊕ ... ⊕ B[p-1][q-1]
+   --    C = B(0)(q-1) ⊕ B(1)(q-1) ⊕ ... ⊕ B(p-1)(q-1)
    --    Tag = H′^T(C)
    --
    --  **Semantics**: XOR last block of each lane, then hash
@@ -320,8 +320,8 @@ is
    --
    --  **RFC 9106 Argon2id Definition (Section 3.4.1.3)**:
    --  1. H₀ = H0_Spec(...)
-   --  2. B[i][0] = H′^1024(H₀ || LE32(0) || LE32(i)) for each lane i
-   --  3. B[i][1] = H′^1024(H₀ || LE32(1) || LE32(i)) for each lane i
+   --  2. B(i)(0) = H′^1024(H₀ || LE32(0) || LE32(i)) for each lane i
+   --  3. B(i)(1) = H′^1024(H₀ || LE32(1) || LE32(i)) for each lane i
    --  4. M = Fill_All_Spec(Initial_Memory_With_B0_B1)
    --  5. Tag = Finalize_Spec(M, Tag_Length)
    --

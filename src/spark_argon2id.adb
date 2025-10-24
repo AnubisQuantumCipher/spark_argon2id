@@ -81,7 +81,7 @@ package body Spark_Argon2id is
       -- Accept requested lanes (enforced by precondition)
       declare
          Requested_Lanes : constant Positive := Positive (Integer (Params.Parallelism));
-         Empty : constant Byte_Array := [];
+         Empty : constant Byte_Array (1 .. 0) := (others => 0);
       begin
          pragma Assert (Requested_Lanes = Parallelism);
          Compute_H0 (
@@ -125,7 +125,7 @@ package body Spark_Argon2id is
       Zeroize_And_Free (Memory_Ptr);
    exception
       when others =>
-         Output := [others => 0];
+         Output := (others => 0);
          Spark_Argon2id.Zeroize.Wipe (H0);
          Spark_Argon2id.Zeroize.Wipe (Final_Output);
          Zeroize_And_Free (Memory_Ptr);
@@ -193,10 +193,10 @@ package body Spark_Argon2id is
       --  compute from the same inputs.
       --
       --  **Composition Chain** (RFC 9106 Sections 3.1-3.4):
-      --  1. H0 = Compute_H0(...) refines H0_Spec(...) [Phase 3 OK]
-      --  2. B[i][0], B[i][1] = Generate_Initial_Blocks(H0, i) refines HPrime_Spec(H0||...) [via HPrime refinement, Phase 3 OK]
-      --  3. Memory_Filled = Fill_Memory(Memory) refines Fill_All_Spec(M) [Phase 4 OK]
-      --  4. Output = Finalize(Memory_Filled, ...) refines Finalize_Spec(M_Filled, ...) [Phase 5 OK]
+      --  1. H0 = Compute_H0(...) refines H0_Spec(...) (Phase 3 OK)
+      --  2. B(i)(0), B(i)(1) = Generate_Initial_Blocks(H0, i) refines HPrime_Spec(H0||...) (via HPrime refinement, Phase 3 OK)
+      --  3. Memory_Filled = Fill_Memory(Memory) refines Fill_All_Spec(M) (Phase 4 OK)
+      --  4. Output = Finalize(Memory_Filled, ...) refines Finalize_Spec(M_Filled, ...) (Phase 5 OK)
       --
       --  **Why pragma Assume**:
       --  Derive_Ex is the top-level composition of all Argon2id operations.
@@ -236,7 +236,7 @@ package body Spark_Argon2id is
       Zeroize_And_Free (Memory_Ptr);
    exception
       when others =>
-         Output := [others => 0];
+         Output := (others => 0);
          Spark_Argon2id.Zeroize.Wipe (H0);
          Zeroize_And_Free (Memory_Ptr);
          Success := False;

@@ -12,16 +12,16 @@ with Spark_Argon2id.Spec;
 --
 --    H'(tau, X):
 --      if tau <= 64:
---        return Blake2b-512(LE32(tau) || X)[0..tau-1]
+--        return Blake2b-512(LE32(tau) || X)(0..tau-1)
 --      else:
 --        V_1 = Blake2b-512(LE32(tau) || X)
---        V_2 = Blake2b-512(V_1[0..31])
---        V_3 = Blake2b-512(V_2[0..31])
+--        V_2 = Blake2b-512(V_1(0..31))
+--        V_3 = Blake2b-512(V_2(0..31))
 --        ...
---        return V_1 || V_2[0..31] || V_3[0..31] || ...
+--        return V_1 || V_2(0..31) || V_3(0..31) || ...
 --
 --  **Usage in Argon2id**:
---    Generate initial blocks: B[i][j] = H'(1024, H₀ || LE32(j) || LE32(i))
+--    Generate initial blocks: B(i)(j) = H'(1024, H₀ || LE32(j) || LE32(i))
 --
 --  **Security Properties**:
 --    - Deterministic: Same input always produces same output

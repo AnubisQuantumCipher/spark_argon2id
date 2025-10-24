@@ -342,14 +342,14 @@ Argon2_Verification_Mode : constant Argon2_Verification_Preset := Production;
 
 ### Prerequisites
 
-| Component | Version | Purpose |
-|-----------|---------|---------|
-| **GNAT FSF** | 13.1+ | Ada compiler (free) |
-| **GNAT Pro** | 24.0+ | Ada compiler (commercial, optional) |
-| **GPRbuild** | 22.0+ | Build system |
-| **Alire** | 2.0+ | Package manager (recommended) |
-| **GNATprove** | 14.0+ | Formal verification (optional) |
-| **Make** | 3.8+ | Build automation (optional) |
+| Component | Version | Purpose | Notes |
+|-----------|---------|---------|-------|
+| **GNAT FSF** | 13.1+ | Ada compiler (free) | Ada 2012 support required |
+| **GNAT Pro** | 24.0+ | Ada compiler (commercial) | Ada 2012 support required |
+| **GPRbuild** | 22.0+ | Build system | Must support Ada 2012 |
+| **Alire** | 2.0+ | Package manager (recommended) | Manages dependencies |
+| **GNATprove** | 14.0+ | Formal verification (optional) | For SPARK proofs |
+| **Make** | 3.8+ | Build automation (optional) | For test targets |
 
 ### Quick Start with Alire
 
@@ -483,18 +483,28 @@ Test 1: Argon2id p=2 m=1GiB t=4
 ### Memory Leak Detection
 
 ```bash
-$ for i in {1..5}; do
-    echo "Iteration $i:"
-    /usr/bin/time -l ./tests/obj/test_spark_argon2id 2>&1 | grep "maximum resident"
-  done
+# Cross-platform memory profiling (macOS and Linux)
+$ cd tests && ./profile_memory.sh 5
 
-Iteration 1: 1098432000 maximum resident set size
-Iteration 2: 1098432000 maximum resident set size
-Iteration 3: 1098432000 maximum resident set size
-Iteration 4: 1098432000 maximum resident set size
-Iteration 5: 1098432000 maximum resident set size
+===================================================================
+ Memory Profile Test - 5 iterations
+ Platform: Darwin
+===================================================================
 
-Result: No memory leak detected (constant memory usage)
+Iteration 1:
+  2.80 real         2.62 user         0.08 sys
+  1075298304  maximum resident set size
+
+Iteration 2:
+  1075298304  maximum resident set size
+
+... (iterations 3-5)
+
+===================================================================
+ Profile complete
+===================================================================
+
+Result: No memory leak detected (constant memory usage across iterations)
 ```
 
 ### Performance Testing
@@ -505,6 +515,9 @@ $ time ./tests/obj/test_spark_argon2id
 real    0m5.234s
 user    0m5.198s
 sys     0m0.034s
+
+# Cross-platform memory profiling
+$ cd tests && ./profile_memory.sh 5
 
 # Detailed profiling (requires gprof)
 $ gprbuild -P spark_argon2id.gpr -cargs -pg -largs -pg

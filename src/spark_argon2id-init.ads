@@ -9,17 +9,17 @@ with Spark_Argon2id.Internal_Types; use Spark_Argon2id.Internal_Types;
 --  **Purpose**: Generate first two blocks per lane from H₀
 --
 --  **Algorithm** (RFC 9106 Section 3.4):
---    For each lane i ∈ [0, p):
---      B[i][0] = H'(1024, H₀ || LE32(0) || LE32(i))
---      B[i][1] = H'(1024, H₀ || LE32(1) || LE32(i))
+--    For each lane i ∈ (0, p):
+--      B(i)(0) = H'(1024, H₀ || LE32(0) || LE32(i))
+--      B(i)(1) = H'(1024, H₀ || LE32(1) || LE32(i))
 --
 --  **Example** (Parallelism = 2):
 --    Lane 0:
---      B[0][0] = H'(1024, H₀ || [0,0,0,0] || [0,0,0,0])
---      B[0][1] = H'(1024, H₀ || [1,0,0,0] || [0,0,0,0])
+--      B(0)(0) = H'(1024, H₀ || (0,0,0,0) || (0,0,0,0))
+--      B(0)(1) = H'(1024, H₀ || (1,0,0,0) || (0,0,0,0))
 --    Lane 1:
---      B[1][0] = H'(1024, H₀ || [0,0,0,0] || [1,0,0,0])
---      B[1][1] = H'(1024, H₀ || [1,0,0,0] || [1,0,0,0])
+--      B(1)(0) = H'(1024, H₀ || (0,0,0,0) || (1,0,0,0))
+--      B(1)(1) = H'(1024, H₀ || (1,0,0,0) || (1,0,0,0))
 --
 --  **Security Properties**:
 --    - Deterministic: Same H₀ always produces same blocks
@@ -49,8 +49,8 @@ is
    --
    --  For SparkPass (p=2): 4 blocks total (2 per lane: Block_0, Block_1)
    type Initial_Blocks is record
-      Block_0 : Block := Zero_Block;  -- B[lane][0]
-      Block_1 : Block := Zero_Block;  -- B[lane][1]
+      Block_0 : Block := Zero_Block;  -- B(lane)(0)
+      Block_1 : Block := Zero_Block;  -- B(lane)(1)
    end record;
 
    ------------------------------------------------------------
@@ -76,10 +76,10 @@ is
    --    - Output blocks are filled with pseudorandom data
    --
    --  **Example** (Lane 0):
-   --    H0_Input := H₀ || [0,0,0,0] || [0,0,0,0]  (72 bytes)
+   --    H0_Input := H₀ || (0,0,0,0) || (0,0,0,0)  (72 bytes)
    --    Block_0 := H'(1024, H0_Input)
    --
-   --    H1_Input := H₀ || [1,0,0,0] || [0,0,0,0]  (72 bytes)
+   --    H1_Input := H₀ || (1,0,0,0) || (0,0,0,0)  (72 bytes)
    --    Block_1 := H'(1024, H1_Input)
    --
    --  **Source**: RFC 9106 Section 3.4

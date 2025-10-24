@@ -38,7 +38,7 @@ package Spark_Argon2id is
       Memory_Cost : Interfaces.Unsigned_32 := Argon2_Memory_KiB;
       Iterations  : Interfaces.Unsigned_32 := Argon2_Iterations;
       Parallelism : Interfaces.Unsigned_32 := Argon2_Parallelism;
-      Salt        : Salt_Array := [others => 0];
+      Salt        : Salt_Array := (others => 0);
    end record;
 
    procedure Derive
