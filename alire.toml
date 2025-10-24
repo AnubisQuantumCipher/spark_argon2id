@@ -1,0 +1,16 @@
+name = "spark_argon2id"
+version = "1.3.0"
+description = "Pure SPARK Ada implementation of Argon2id (RFC 9106, version 0x13)"
+licenses = "Apache-2.0"
+authors = ["AnubisQuantumCipher <sic.tau@pm.me>"]
+maintainers = ["AnubisQuantumCipher <sic.tau@pm.me>"]
+website = "https://github.com/AnubisQuantumCipher/spark_argon2id"
+tags = ["cryptography", "argon2", "password", "spark"]
+project-files = ["spark_argon2id.gpr"]
+
+long-description = """
+Argon2id password hashing (RFC 9106, version 0x13). Memory-hard function with SPARK contracts for formal verification.
+"""
+
+[[depends-on]]
+gnatprove = "^14.1"

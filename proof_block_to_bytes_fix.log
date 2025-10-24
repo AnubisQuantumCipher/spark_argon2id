@@ -1,0 +1,15 @@
+Phase 1 of 3: generation of data representation information ...
+generation of data representation information failed
+continuing analysis with partial data representation
+for details, see log file gnatprove/data_representation_generation.log
+Phase 2 of 3: generation of Global contracts ...
+
+spark_argon2id-finalize.adb:73:07: error: aspect specification must appear on initial declaration
+   73 |      Relaxed_Initialization => Output,
+      |      ^~~~~~~~~~~~~~~~~~~~~~
+
+spark_argon2id-finalize.adb:74:07: error: aspect "Post" should be "Refined_Post"
+   74 |      Post => Output'Initialized
+      |      ^~~~
+gnatprove: error during generation of Global contracts
+ERROR: Command ["gnatprove", "-P", "spark_argon2id.gpr", "--level=2", "--timeout=120", "--report=all", "--warnings=continue"] exited with code 1

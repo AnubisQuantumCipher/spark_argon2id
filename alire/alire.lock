@@ -1,0 +1,42 @@
+# THIS FILE IS GENERATED. DO NOT EDIT.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "gnatprove"
+fulfilment = "solved"
+pinned = false
+transitivity = "direct"
+versions = "^14.1"
+[solution.state.release]
+auto-gpr-with = false
+description = "Automatic formal verification of SPARK code"
+licenses = "GPL-3.0-or-later"
+maintainers = [
+"chouteau@adacore.com",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "gnatprove"
+version = "14.1.1"
+[solution.state.release.configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+[solution.state.release.environment]
+[solution.state.release.environment.GPR_PROJECT_PATH]
+prepend = "${CRATE_ROOT}/lib/gnat"
+[solution.state.release.environment.PATH]
+prepend = "${CRATE_ROOT}/bin"
+[solution.state.release.origin]
+binary = true
+hashes = [
+"sha256:91818ed8775fd0cf1d3c0ffc3cfe05c5ab9d759a1d18c38c06ed5134c7563876",
+]
+url = "https://github.com/alire-project/GNAT-FSF-builds/releases/download/gnatprove-14.1.0-1/gnatprove-aarch64-darwin-14.1.0-1.tar.gz"
+

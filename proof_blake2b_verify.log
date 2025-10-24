@@ -1,0 +1,464 @@
+Phase 1 of 3: generation of data representation information ...
+Phase 2 of 3: generation of Global contracts ...
+Phase 3 of 3: flow analysis and proof ...
+
+spark_argon2id-blake2b.adb:43:37: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+   43 |     Pre    => Bytes'Length = 8 and Bytes'Initialized
+      |                                    ^~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:63:48: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+   63 |     Post   => LE_Unpack'Result'Length = 8 and LE_Unpack'Result'Initialized
+      |                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:96:39: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+   96 |     Pre    => Bytes'Length = 128 and Bytes'Initialized,
+      |                                      ^~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:97:16: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+   97 |     Post   => Bytes_To_Words'Result'Initialized and Bytes_To_Words'Result'Length = 16
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:97:83: warning: conjunct in postcondition does not check the outcome of calling "Bytes_To_Words"
+   97 |     Post   => Bytes_To_Words'Result'Initialized and Bytes_To_Words'Result'Length = 16
+      |                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+
+spark_argon2id-blake2b.adb:106:24: error: "LE_Pack" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  106 |         Result (I) := LE_Pack (Bytes (I * 8 + 1 .. I * 8 + 8));
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:123:37: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+  123 |     Pre    => Words'Length = 8 and Words'Initialized,
+      |                                    ^~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:124:16: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+  124 |     Post   => Words_To_Bytes'Result'Initialized and Words_To_Bytes'Result'Length = 64
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:124:83: warning: conjunct in postcondition does not check the outcome of calling "Words_To_Bytes"
+  124 |     Post   => Words_To_Bytes'Result'Initialized and Words_To_Bytes'Result'Length = 64
+      |                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+
+spark_argon2id-blake2b.adb:134:13: error: "Byte_Slice" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  134 |            Byte_Slice : constant Byte_Array := LE_Unpack (Words (I));
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:134:49: error: "LE_Unpack" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  134 |            Byte_Slice : constant Byte_Array := LE_Unpack (Words (I));
+      |                                                ^~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:136:28: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+  136 |            pragma Assert (Byte_Slice'Initialized and Byte_Slice'Length = 8);
+      |                           ^~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:136:28: error: "Byte_Slice" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  136 |            pragma Assert (Byte_Slice'Initialized and Byte_Slice'Length = 8);
+      |                           ^~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:136:55: error: "Byte_Slice" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  136 |            pragma Assert (Byte_Slice'Initialized and Byte_Slice'Length = 8);
+      |                                                      ^~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:137:48: error: "Byte_Slice" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  137 |            Result (I * 8 + 1 .. I * 8 + 8) := Byte_Slice;
+      |                                               ^~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:157:34: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+  157 |     Pre    => V'Length = 16 and V'Initialized and
+      |                                 ^~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:160:16: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+  160 |     Post   => V'Initialized and V'Length = 16
+      |               ^~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:160:43: warning: conjunct in postcondition does not check the outcome of calling "G"
+  160 |     Post   => V'Initialized and V'Length = 16
+      |                                 ~~~~~~~~~^~~~
+
+spark_argon2id-blake2b.adb:171:22: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+  171 |      pragma Assert (V'Initialized);  -- All elements updated or unchanged
+      |                     ^~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:184:16: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+  184 |     Post   => Init_State'Result'Initialized and Init_State'Result'Length = 8
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:184:75: warning: conjunct in postcondition does not check the outcome of calling "Init_State"
+  184 |     Post   => Init_State'Result'Initialized and Init_State'Result'Length = 8
+      |                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+
+spark_argon2id-blake2b.adb:211:07: error: "M" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  211 |      M : constant Message_Words := Bytes_To_Words (Block);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:211:37: error: "Bytes_To_Words" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  211 |      M : constant Message_Words := Bytes_To_Words (Block);
+      |                                    ^~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:249:10: error: "G" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  249 |         G (V, 0, 4,  8, 12); G (V, 1, 5,  9, 13); G (V, 2, 6, 10, 14); G (V, 3, 7, 11, 15);
+      |         ^~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:249:31: error: "G" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  249 |         G (V, 0, 4,  8, 12); G (V, 1, 5,  9, 13); G (V, 2, 6, 10, 14); G (V, 3, 7, 11, 15);
+      |                              ^~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:249:52: error: "G" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  249 |         G (V, 0, 4,  8, 12); G (V, 1, 5,  9, 13); G (V, 2, 6, 10, 14); G (V, 3, 7, 11, 15);
+      |                                                   ^~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:249:73: error: "G" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  249 |         G (V, 0, 4,  8, 12); G (V, 1, 5,  9, 13); G (V, 2, 6, 10, 14); G (V, 3, 7, 11, 15);
+      |                                                                        ^~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:250:10: error: "G" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  250 |         G (V, 0, 5, 10, 15); G (V, 1, 6, 11, 12); G (V, 2, 7,  8, 13); G (V, 3, 4,  9, 14);
+      |         ^~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:250:31: error: "G" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  250 |         G (V, 0, 5, 10, 15); G (V, 1, 6, 11, 12); G (V, 2, 7,  8, 13); G (V, 3, 4,  9, 14);
+      |                              ^~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:250:52: error: "G" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  250 |         G (V, 0, 5, 10, 15); G (V, 1, 6, 11, 12); G (V, 2, 7,  8, 13); G (V, 3, 4,  9, 14);
+      |                                                   ^~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:250:73: error: "G" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  250 |         G (V, 0, 5, 10, 15); G (V, 1, 6, 11, 12); G (V, 2, 7,  8, 13); G (V, 3, 4,  9, 14);
+      |                                                                        ^~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:256:60: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+  256 |         pragma Loop_Invariant (for all J in 0 .. I - 1 => State (J)'Initialized);
+      |                                                           ^~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:258:25: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+  258 |         pragma Assert (State (I)'Initialized);
+      |                        ^~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:260:22: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+  260 |      pragma Assert (State'Initialized);
+      |                     ^~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:273:07: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  273>|      State : State_Words := Init_State (64)
+  274 |         with Relaxed_Initialization;
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:273:30: error: "Init_State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  273 |      State : State_Words := Init_State (64)
+      |                             ^~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:275:22: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  275 |      pragma Assert (State'Initialized);  -- From Init_State post
+      |                     ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:285:33: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  285 |         pragma Loop_Invariant (State'Initialized);
+      |                                ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:288:20: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  288 |         Compress (State, Block, U64 (Offset - Message'First + 128), False);
+      |                   ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:289:25: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  289 |         pragma Assert (State'Initialized);
+      |                        ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:301:17: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  301 |      Compress (State, Block, U64 (Message'Length), True);
+      |                ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:302:22: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  302 |      pragma Assert (State'Initialized);
+      |                     ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:305:17: error: "Words_To_Bytes" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  305 |      Output := Words_To_Bytes (State);
+      |                ^~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:305:33: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  305 |      Output := Words_To_Bytes (State);
+      |                                ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:319:07: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  319>|      State : State_Words := Init_State (Output'Length)
+  320 |         with Relaxed_Initialization;
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:319:30: error: "Init_State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  319 |      State : State_Words := Init_State (Output'Length)
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:321:22: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  321 |      pragma Assert (State'Initialized);
+      |                     ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:333:20: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  333 |         Compress (State, Block, 0, True);
+      |                   ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:334:25: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  334 |         pragma Assert (State'Initialized);
+      |                        ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:336:13: error: "Full_Output" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  336 |            Full_Output : constant Hash_Type := Words_To_Bytes (State);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:336:49: error: "Words_To_Bytes" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  336 |            Full_Output : constant Hash_Type := Words_To_Bytes (State);
+      |                                                ^~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:336:65: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  336 |            Full_Output : constant Hash_Type := Words_To_Bytes (State);
+      |                                                                ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:338:28: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+  338 |            pragma Assert (Full_Output'Initialized);
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:338:28: error: "Full_Output" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  338 |            pragma Assert (Full_Output'Initialized);
+      |                           ^~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:339:23: error: "Full_Output" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  339 |            Output := Full_Output (1 .. Out_Len);
+      |                      ^~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:348:33: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  348 |         pragma Loop_Invariant (State'Initialized);
+      |                                ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:351:20: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  351 |         Compress (State, Block, U64 (Offset - Message'First + 128), False);
+      |                   ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:352:25: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  352 |         pragma Assert (State'Initialized);
+      |                        ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:364:17: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  364 |      Compress (State, Block, U64 (Message'Length), True);
+      |                ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:365:22: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  365 |      pragma Assert (State'Initialized);
+      |                     ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:369:10: error: "Full_Output" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  369 |         Full_Output : constant Hash_Type := Words_To_Bytes (State);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:369:46: error: "Words_To_Bytes" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  369 |         Full_Output : constant Hash_Type := Words_To_Bytes (State);
+      |                                             ^~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:369:62: error: "State" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  369 |         Full_Output : constant Hash_Type := Words_To_Bytes (State);
+      |                                                             ^~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:371:25: error: prefix of attribute "Initialized" without initialization by proof is not allowed in SPARK
+  371 |         pragma Assert (Full_Output'Initialized);
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:371:25: error: "Full_Output" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  371 |         pragma Assert (Full_Output'Initialized);
+      |                        ^~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.adb:372:20: error: "Full_Output" is not allowed in SPARK (due to prefix of attribute "Initialized" without initialization by proof)
+  372 |         Output := Full_Output (1 .. Out_Len);
+      |                   ^~~~~~~~~~~
+  violation of aspect SPARK_Mode at line 6
+    6 |  with SPARK_Mode => On
+      |       ^ here
+
+spark_argon2id-blake2b.ads:101:53: warning: conjunct in postcondition does not check the outcome of calling "Hash"
+  101 |     Post   => Output'Initialized and Output'Length = 64;
+      |                                      ~~~~~~~~~~~~~~^~~~
+
+spark_argon2id-blake2b.ads:155:06: warning: postcondition does not check the outcome of calling "Compress"
+  155 |     Post   => State'Length = 8;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+Summary logged in /Users/sicarii/Desktop/Desktop - MacBook Pro/spark_argon2id/obj/gnatprove/gnatprove.out
+gnatprove: error during flow analysis and proof
+ERROR: Command ["gnatprove", "-P", "spark_argon2id.gpr", "--level=2", "--timeout=120", "-u", "spark_argon2id-blake2b.adb", "--report=all"] exited with code 1

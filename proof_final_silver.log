@@ -1,0 +1,309 @@
+Phase 1 of 3: generation of data representation information ...
+Phase 2 of 3: generation of Global contracts ...
+Phase 3 of 3: flow analysis and proof ...
+spark_argon2id-zeroize.adb:10:33: info: loop invariant preservation proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:10:33: info: loop invariant initialization proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:10:64: info: overflow check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:11:22: info: index check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:24:25: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:30:33: info: loop invariant initialization proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:30:33: info: loop invariant preservation proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:31:33: info: loop invariant initialization proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:31:33: info: loop invariant preservation proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:31:64: info: overflow check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:32:21: info: index check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:36:25: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:37:25: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:37:67: info: index check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:41:22: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:41:59: info: index check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:42:22: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:49:33: info: loop invariant preservation proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:49:33: info: loop invariant initialization proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:50:33: info: loop invariant preservation proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:50:33: info: loop invariant initialization proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:51:21: info: index check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:56:22: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:57:22: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:64:33: info: loop invariant preservation proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:64:33: info: loop invariant initialization proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:65:33: info: loop invariant preservation proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:65:33: info: loop invariant initialization proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:66:21: info: index check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:71:22: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:72:22: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:86:33: info: loop invariant initialization proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:86:33: info: loop invariant preservation proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:87:33: info: loop invariant preservation proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:87:33: info: loop invariant initialization proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:87:35: info: overflow check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:87:48: info: overflow check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:88:33: info: loop invariant initialization proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:88:33: info: loop invariant preservation proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:88:78: info: overflow check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:89:19: info: index check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:89:33: info: overflow check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:89:46: info: overflow check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:89:46: info: index check proved (CVC5: 4 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:93:53: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:93:66: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:93:66: info: index check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:97:22: info: assertion proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:98:16: info: index check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:98:30: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:98:43: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.adb:98:43: info: index check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.ads:9:13: info: implicit aspect Always_Terminates on "Is_Zeroed_Ghost" has been proved, subprogram will terminate
+spark_argon2id-zeroize.ads:10:44: info: index check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.ads:13:06: info: data dependencies proved
+spark_argon2id-zeroize.ads:14:06: info: flow dependencies proved
+spark_argon2id-zeroize.ads:17:13: info: implicit aspect Always_Terminates on "Is_Zeroed" has been proved, subprogram will terminate
+spark_argon2id-zeroize.ads:19:06: info: data dependencies proved
+spark_argon2id-zeroize.ads:20:06: info: flow dependencies proved
+spark_argon2id-zeroize.ads:21:17: info: postcondition proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.ads:26:08: info: data dependencies proved
+spark_argon2id-zeroize.ads:27:08: info: flow dependencies proved
+spark_argon2id-zeroize.ads:28:19: info: postcondition proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.ads:33:08: info: data dependencies proved
+spark_argon2id-zeroize.ads:34:08: info: flow dependencies proved
+spark_argon2id-zeroize.ads:35:19: info: postcondition proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.ads:40:08: info: data dependencies proved
+spark_argon2id-zeroize.ads:41:08: info: flow dependencies proved
+spark_argon2id-zeroize.ads:42:19: info: postcondition proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.ads:47:13: info: implicit aspect Always_Terminates on "Equal" has been proved, subprogram will terminate
+spark_argon2id-zeroize.ads:49:08: info: data dependencies proved
+spark_argon2id-zeroize.ads:50:08: info: flow dependencies proved
+spark_argon2id-zeroize.ads:54:19: info: postcondition proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.ads:55:27: info: index check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.ads:55:41: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.ads:55:54: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-zeroize.ads:55:54: info: index check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:45:07: info: initialization of "H0" proved
+spark_argon2id.adb:47:32: info: length check proved (CVC5: 6 VC in max 0.0 seconds and 1 step; Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id.adb:47:43: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:49:07: info: initialization of "Final_Output" proved
+spark_argon2id.adb:53:59: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:53:74: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:54:41: info: range check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:56:25: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:57:10: info: precondition proved (CVC5: 13 VC in max 0.0 seconds and 9 steps)
+spark_argon2id.adb:64:47: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:65:47: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:72:13: info: initialization of "Init_Blocks" proved
+spark_argon2id.adb:74:13: info: precondition proved (CVC5: 3 VC in max 0.0 seconds and 1 step; Z3: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:74:69: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:75:24: info: index check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:76:24: info: index check proved (CVC5: 1 VC in max 0.0 seconds and 1 step; Z3: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:84:30: info: precondition proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+
+spark_argon2id.adb:92:29: warning: statement has no effect
+   92 |      Spark_Argon2id.Zeroize.Wipe (H0);
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+
+spark_argon2id.adb:92:36: warning: "H0" is set by "Wipe" but not used after the call
+   92 |      Spark_Argon2id.Zeroize.Wipe (H0);
+      |                                   ^~
+
+spark_argon2id.adb:93:29: warning: statement has no effect
+   93 |      Spark_Argon2id.Zeroize.Wipe (Final_Output);
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+
+spark_argon2id.adb:93:36: warning: "Final_Output" is set by "Wipe" but not used after the call
+   93 |      Spark_Argon2id.Zeroize.Wipe (Final_Output);
+      |                                   ^~~~~~~~~~~~
+
+spark_argon2id.adb:96:17: warning: this statement is never reached
+   96 |         Output := [others => 0];
+      |         ~~~~~~~^~~~~~~~~~~~~~~
+
+spark_argon2id.adb:97:32: warning: this statement is never reached
+   97 |         Spark_Argon2id.Zeroize.Wipe (H0);
+      |         ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+
+spark_argon2id.adb:98:32: warning: this statement is never reached
+   98 |         Spark_Argon2id.Zeroize.Wipe (Final_Output);
+      |         ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+
+spark_argon2id.adb:99:18: warning: this statement is never reached
+   99 |         Success := False;
+      |         ~~~~~~~~^~~~~~~~
+spark_argon2id.adb:115:07: info: initialization of "H0" proved
+spark_argon2id.adb:116:32: info: length check proved (CVC5: 6 VC in max 0.0 seconds and 1 step; Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id.adb:116:43: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:120:59: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:120:68: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:122:25: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+
+spark_argon2id.adb:123:10: medium: precondition might fail, cannot prove Tag_Length in 1 .. 1024
+  123>|         Compute_H0 (
+  ... | ...
+  132 |           H0_Out          => H0);
+spark_argon2id.adb:129:37: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:130:41: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:131:41: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:137:13: info: initialization of "Init_Blocks" proved
+spark_argon2id.adb:139:13: info: precondition proved (CVC5: 3 VC in max 0.0 seconds and 1 step; Z3: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:139:69: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:140:24: info: index check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:141:24: info: index check proved (CVC5: 1 VC in max 0.0 seconds and 1 step; Z3: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:147:30: info: precondition proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id.adb:149:32: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+
+spark_argon2id.adb:154:29: warning: statement has no effect
+  154 |      Spark_Argon2id.Zeroize.Wipe (H0);
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+
+spark_argon2id.adb:154:36: warning: "H0" is set by "Wipe" but not used after the call
+  154 |      Spark_Argon2id.Zeroize.Wipe (H0);
+      |                                   ^~
+
+spark_argon2id.adb:157:17: warning: this statement is never reached
+  157 |         Output := [others => 0];
+      |         ~~~~~~~^~~~~~~~~~~~~~~
+
+spark_argon2id.adb:158:32: warning: this statement is never reached
+  158 |         Spark_Argon2id.Zeroize.Wipe (H0);
+      |         ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+
+spark_argon2id.adb:159:18: warning: this statement is never reached
+  159 |         Success := False;
+      |         ~~~~~~~~^~~~~~~~
+spark_argon2id.ads:35:07: info: initialization of "Output" proved
+spark_argon2id.ads:36:07: info: initialization of "Success" proved
+spark_argon2id.ads:38:08: info: data dependencies proved
+spark_argon2id.ads:46:08: info: flow dependencies proved
+spark_argon2id.ads:48:19: info: postcondition proved (CVC5: 1 VC in max 0.0 seconds and 1 step; Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id.ads:56:07: info: initialization of "Output" proved
+spark_argon2id.ads:60:07: info: initialization of "Success" proved
+spark_argon2id.ads:62:08: info: data dependencies proved
+spark_argon2id.ads:72:08: info: flow dependencies proved
+spark_argon2id.ads:74:19: info: postcondition proved (CVC5: 1 VC in max 0.0 seconds and 1 step; Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id.ads:74:78: info: index check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:21:30: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:22:18: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:34:07: info: initialization of "Ref_Lane" proved
+spark_argon2id-index.adb:38:34: info: division check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:38:34: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:59:07: info: initialization of "Ref_Area" proved
+spark_argon2id-index.adb:75:31: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:81:40: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:81:68: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:81:76: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:86:43: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:86:71: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:88:43: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:88:43: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:97:76: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:97:84: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:100:79: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:102:51: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:121:07: info: initialization of "X" proved
+spark_argon2id-index.adb:122:07: info: initialization of "Y" proved
+spark_argon2id-index.adb:123:07: info: initialization of "Z" proved
+spark_argon2id-index.adb:124:07: info: initialization of "Z_Nat" proved
+spark_argon2id-index.adb:125:07: info: initialization of "Relative_Pos" proved
+spark_argon2id-index.adb:130:20: info: division check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:137:14: info: division check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:184:25: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 4042 steps)
+spark_argon2id-index.adb:185:22: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 9926 steps)
+
+spark_argon2id-index.adb:186:07: warning: no check message justified by this pragma
+  186>|      pragma Annotate (GNATprove, False_Positive,
+  ... | ...
+  191 |                       "mapping function guarantees Z < Reference_Area_Size. Verified by manual review.");
+spark_argon2id-index.adb:197:47: info: overflow check proved (CVC5: 1 VC in max 0.0 seconds and 1 step; Z3: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:197:47: info: range check proved (CVC5: 1 VC in max 0.0 seconds and 1 step; Z3: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:213:07: info: initialization of "Start_Position" proved
+spark_argon2id-index.adb:214:07: info: initialization of "Absolute_Position" proved
+spark_argon2id-index.adb:227:47: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:228:28: info: division check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:232:44: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:233:28: info: division check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:233:28: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:236:22: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:237:22: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:243:25: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:244:25: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 7 steps)
+spark_argon2id-index.adb:245:25: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:283:22: info: assertion justified
+spark_argon2id-index.adb:284:51: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 217 steps)
+spark_argon2id-index.adb:284:79: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 227 steps)
+spark_argon2id-index.adb:306:07: info: initialization of "Temp_Block" proved
+spark_argon2id-index.adb:335:39: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:337:28: info: precondition proved (Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id-index.adb:339:28: info: non-aliasing of formal parameters "Y" and "Output" proved
+spark_argon2id-index.adb:339:28: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 54 steps)
+spark_argon2id-index.adb:343:29: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 11 steps)
+spark_argon2id-index.adb:344:28: info: precondition proved (Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id-index.adb:363:07: info: initialization of "Temp_Block" proved
+spark_argon2id-index.adb:364:07: info: initialization of "Block_Offset" proved
+spark_argon2id-index.adb:368:29: info: division check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:381:28: info: precondition proved (Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id-index.adb:383:28: info: non-aliasing of formal parameters "Y" and "Output" proved
+spark_argon2id-index.adb:389:28: info: precondition proved (Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id-index.adb:414:07: info: initialization of "Mode" proved
+spark_argon2id-index.adb:415:07: info: initialization of "Pseudo_Rand" proved
+spark_argon2id-index.adb:416:07: info: initialization of "J1" proved
+spark_argon2id-index.adb:417:07: info: initialization of "J2" proved
+spark_argon2id-index.adb:418:07: info: initialization of "Ref_Area_Size" proved
+spark_argon2id-index.adb:419:07: info: initialization of "Rel_Pos" proved
+spark_argon2id-index.adb:420:07: info: initialization of "Same_Lane" proved
+spark_argon2id-index.adb:429:10: info: precondition proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:443:24: info: precondition proved (CVC5: 8 VC in max 0.0 seconds and 1 step; Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id-index.adb:446:22: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:449:18: info: precondition proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:452:22: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:453:22: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:453:32: info: precondition proved (CVC5: 8 VC in max 0.0 seconds and 1 step; Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id-index.adb:459:25: info: assertion justified
+spark_argon2id-index.adb:464:25: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:465:25: info: assertion proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.adb:469:20: info: precondition proved (CVC5: 11 VC in max 0.0 seconds and 1 step; Trivial: 2 VC in max 0.0 seconds and 2 steps)
+spark_argon2id-index.ads:39:12: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:43:12: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:78:07: info: initialization of "J1" proved
+spark_argon2id-index.ads:79:07: info: initialization of "J2" proved
+spark_argon2id-index.ads:81:07: info: data dependencies proved
+spark_argon2id-index.ads:82:17: info: postcondition proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:82:39: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:83:27: info: range check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:96:13: info: implicit aspect Always_Terminates on "Calculate_Ref_Lane" has been proved, subprogram will terminate
+spark_argon2id-index.ads:100:07: info: data dependencies proved
+spark_argon2id-index.ads:101:17: info: postcondition proved (CVC5: 3 VC in max 0.0 seconds and 1 step; Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id-index.ads:122:13: info: implicit aspect Always_Terminates on "Calculate_Reference_Area_Size" has been proved, subprogram will terminate
+spark_argon2id-index.ads:127:07: info: data dependencies proved
+spark_argon2id-index.ads:134:17: info: postcondition proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:160:13: info: implicit aspect Always_Terminates on "Map_J1_To_Position" has been proved, subprogram will terminate
+spark_argon2id-index.ads:164:07: info: data dependencies proved
+spark_argon2id-index.ads:166:17: info: postcondition proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:181:13: info: implicit aspect Always_Terminates on "Calculate_Ref_Index" has been proved, subprogram will terminate
+spark_argon2id-index.ads:187:07: info: data dependencies proved
+spark_argon2id-index.ads:201:37: info: precondition proved (CVC5: 8 VC in max 0.0 seconds and 1 step; Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id-index.ads:202:17: info: postcondition proved (CVC5: 4 VC in max 0.0 seconds and 1 step; Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id-index.ads:205:49: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 259 steps)
+spark_argon2id-index.ads:205:77: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 270 steps)
+spark_argon2id-index.ads:237:07: info: data dependencies proved
+spark_argon2id-index.ads:242:17: info: postcondition proved (CVC5: 8 VC in max 0.0 seconds and 750 steps)
+spark_argon2id-index.ads:242:22: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:243:22: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 14 steps)
+spark_argon2id-index.ads:244:22: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 5 steps)
+spark_argon2id-index.ads:245:22: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:246:22: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:247:22: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:248:22: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:249:22: info: initialization check proved (CVC5: 1 VC in max 0.0 seconds and 97 steps)
+spark_argon2id-index.ads:269:07: info: initialization of "Pseudo_Rand" proved
+spark_argon2id-index.ads:271:07: info: data dependencies proved
+spark_argon2id-index.ads:273:17: info: postcondition proved (CVC5: 2 VC in max 0.0 seconds and 1 step; Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id-index.ads:273:58: info: division check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:275:27: info: division check proved (CVC5: 1 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:303:07: info: initialization of "Ref_Lane" proved
+spark_argon2id-index.ads:304:07: info: initialization of "Ref_Index" proved
+spark_argon2id-index.ads:306:07: info: data dependencies proved
+spark_argon2id-index.ads:313:17: info: postcondition proved (CVC5: 7 VC in max 0.0 seconds and 1 step; Trivial: 1 VC in max 0.0 seconds and 2 steps)
+spark_argon2id-index.ads:315:43: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 316 steps)
+spark_argon2id-index.ads:315:71: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 317 steps)
+spark_argon2id-index.ads:335:13: info: implicit aspect Always_Terminates on "Ref_Index_Valid" has been proved, subprogram will terminate
+spark_argon2id-index.ads:344:50: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:344:78: info: overflow check proved (CVC5: 2 VC in max 0.0 seconds and 1 step)
+spark_argon2id-index.ads:350:07: info: data dependencies proved

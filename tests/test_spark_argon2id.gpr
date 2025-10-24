@@ -1,0 +1,13 @@
+-- SPDX-License-Identifier: Apache-2.0
+with "../spark_argon2id.gpr";
+
+project Test_SparkArgon2Id is
+   for Source_Dirs use (".");
+   for Object_Dir use "obj";
+   for Main use ("test_spark_argon2id.adb");
+   for Create_Missing_Dirs use "True";
+
+   package Compiler renames SparkArgon2Id.Compiler;
+   package Binder renames SparkArgon2Id.Binder;
+
+end Test_SparkArgon2Id;

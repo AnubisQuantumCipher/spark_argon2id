@@ -1,0 +1,519 @@
+Phase 1 of 3: generation of data representation information ...
+Phase 2 of 3: generation of Global contracts ...
+Phase 3 of 3: flow analysis and proof ...
+spark_argon2id-zeroize.adb:10:33: info: loop invariant preservation proved
+spark_argon2id-zeroize.adb:10:33: info: loop invariant initialization proved
+spark_argon2id-zeroize.adb:10:64: info: overflow check proved
+spark_argon2id-zeroize.adb:11:22: info: index check proved
+spark_argon2id-zeroize.adb:24:25: info: assertion proved
+spark_argon2id-zeroize.adb:30:33: info: loop invariant initialization proved
+spark_argon2id-zeroize.adb:30:33: info: loop invariant preservation proved
+spark_argon2id-zeroize.adb:31:33: info: loop invariant initialization proved
+spark_argon2id-zeroize.adb:31:33: info: loop invariant preservation proved
+spark_argon2id-zeroize.adb:31:64: info: overflow check proved
+spark_argon2id-zeroize.adb:32:21: info: index check proved
+spark_argon2id-zeroize.adb:36:25: info: assertion proved
+spark_argon2id-zeroize.adb:37:25: info: assertion proved
+spark_argon2id-zeroize.adb:37:67: info: index check proved
+spark_argon2id-zeroize.adb:41:22: info: assertion proved
+spark_argon2id-zeroize.adb:41:59: info: index check proved
+spark_argon2id-zeroize.adb:42:22: info: assertion proved
+spark_argon2id-zeroize.adb:49:33: info: loop invariant preservation proved
+spark_argon2id-zeroize.adb:49:33: info: loop invariant initialization proved
+spark_argon2id-zeroize.adb:50:33: info: loop invariant preservation proved
+spark_argon2id-zeroize.adb:50:33: info: loop invariant initialization proved
+spark_argon2id-zeroize.adb:51:21: info: index check proved
+spark_argon2id-zeroize.adb:56:22: info: assertion proved
+spark_argon2id-zeroize.adb:57:22: info: assertion proved
+spark_argon2id-zeroize.adb:64:33: info: loop invariant preservation proved
+spark_argon2id-zeroize.adb:64:33: info: loop invariant initialization proved
+spark_argon2id-zeroize.adb:65:33: info: loop invariant preservation proved
+spark_argon2id-zeroize.adb:65:33: info: loop invariant initialization proved
+spark_argon2id-zeroize.adb:66:21: info: index check proved
+spark_argon2id-zeroize.adb:71:22: info: assertion proved
+spark_argon2id-zeroize.adb:72:22: info: assertion proved
+spark_argon2id-zeroize.adb:86:33: info: loop invariant initialization proved
+spark_argon2id-zeroize.adb:86:33: info: loop invariant preservation proved
+spark_argon2id-zeroize.adb:87:33: info: loop invariant preservation proved
+spark_argon2id-zeroize.adb:87:33: info: loop invariant initialization proved
+spark_argon2id-zeroize.adb:87:35: info: overflow check proved
+spark_argon2id-zeroize.adb:87:48: info: overflow check proved
+spark_argon2id-zeroize.adb:88:33: info: loop invariant initialization proved
+spark_argon2id-zeroize.adb:88:33: info: loop invariant preservation proved
+spark_argon2id-zeroize.adb:88:78: info: overflow check proved
+spark_argon2id-zeroize.adb:89:19: info: index check proved
+spark_argon2id-zeroize.adb:89:33: info: overflow check proved
+spark_argon2id-zeroize.adb:89:46: info: overflow check proved
+spark_argon2id-zeroize.adb:89:46: info: index check proved
+spark_argon2id-zeroize.adb:93:53: info: overflow check proved
+spark_argon2id-zeroize.adb:93:66: info: overflow check proved
+spark_argon2id-zeroize.adb:93:66: info: index check proved
+spark_argon2id-zeroize.adb:97:22: info: assertion proved
+spark_argon2id-zeroize.adb:98:16: info: index check proved
+spark_argon2id-zeroize.adb:98:30: info: overflow check proved
+spark_argon2id-zeroize.adb:98:43: info: overflow check proved
+spark_argon2id-zeroize.adb:98:43: info: index check proved
+spark_argon2id-zeroize.ads:9:13: info: implicit aspect Always_Terminates on "Is_Zeroed_Ghost" has been proved, subprogram will terminate
+spark_argon2id-zeroize.ads:10:44: info: index check proved
+spark_argon2id-zeroize.ads:13:06: info: data dependencies proved
+spark_argon2id-zeroize.ads:14:06: info: flow dependencies proved
+spark_argon2id-zeroize.ads:17:13: info: implicit aspect Always_Terminates on "Is_Zeroed" has been proved, subprogram will terminate
+spark_argon2id-zeroize.ads:19:06: info: data dependencies proved
+spark_argon2id-zeroize.ads:20:06: info: flow dependencies proved
+spark_argon2id-zeroize.ads:21:17: info: postcondition proved
+spark_argon2id-zeroize.ads:26:08: info: data dependencies proved
+spark_argon2id-zeroize.ads:27:08: info: flow dependencies proved
+spark_argon2id-zeroize.ads:28:19: info: postcondition proved
+spark_argon2id-zeroize.ads:33:08: info: data dependencies proved
+spark_argon2id-zeroize.ads:34:08: info: flow dependencies proved
+spark_argon2id-zeroize.ads:35:19: info: postcondition proved
+spark_argon2id-zeroize.ads:40:08: info: data dependencies proved
+spark_argon2id-zeroize.ads:41:08: info: flow dependencies proved
+spark_argon2id-zeroize.ads:42:19: info: postcondition proved
+spark_argon2id-zeroize.ads:47:13: info: implicit aspect Always_Terminates on "Equal" has been proved, subprogram will terminate
+spark_argon2id-zeroize.ads:49:08: info: data dependencies proved
+spark_argon2id-zeroize.ads:50:08: info: flow dependencies proved
+spark_argon2id-zeroize.ads:54:19: info: postcondition proved
+spark_argon2id-zeroize.ads:55:27: info: index check proved
+spark_argon2id-zeroize.ads:55:41: info: overflow check proved
+spark_argon2id-zeroize.ads:55:54: info: overflow check proved
+spark_argon2id-zeroize.ads:55:54: info: index check proved
+spark_argon2id.adb:45:07: info: initialization of "H0" proved
+spark_argon2id.adb:47:32: info: length check proved
+spark_argon2id.adb:47:43: info: range check proved
+spark_argon2id.adb:49:07: info: initialization of "Final_Output" proved
+spark_argon2id.adb:53:59: info: range check proved
+spark_argon2id.adb:53:74: info: range check proved
+spark_argon2id.adb:54:41: info: range check proved
+spark_argon2id.adb:56:25: info: assertion proved
+spark_argon2id.adb:57:10: info: precondition proved
+spark_argon2id.adb:64:47: info: range check proved
+spark_argon2id.adb:65:47: info: range check proved
+spark_argon2id.adb:72:13: info: initialization of "Init_Blocks" proved
+spark_argon2id.adb:74:13: info: precondition proved
+spark_argon2id.adb:74:69: info: initialization check proved
+spark_argon2id.adb:75:24: info: index check proved
+spark_argon2id.adb:76:24: info: index check proved
+spark_argon2id.adb:84:30: info: precondition proved
+
+spark_argon2id.adb:92:29: warning: statement has no effect
+   92 |      Spark_Argon2id.Zeroize.Wipe (H0);
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+
+spark_argon2id.adb:92:36: warning: "H0" is set by "Wipe" but not used after the call
+   92 |      Spark_Argon2id.Zeroize.Wipe (H0);
+      |                                   ^~
+
+spark_argon2id.adb:93:29: warning: statement has no effect
+   93 |      Spark_Argon2id.Zeroize.Wipe (Final_Output);
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+
+spark_argon2id.adb:93:36: warning: "Final_Output" is set by "Wipe" but not used after the call
+   93 |      Spark_Argon2id.Zeroize.Wipe (Final_Output);
+      |                                   ^~~~~~~~~~~~
+
+spark_argon2id.adb:96:17: warning: this statement is never reached
+   96 |         Output := [others => 0];
+      |         ~~~~~~~^~~~~~~~~~~~~~~
+
+spark_argon2id.adb:97:32: warning: this statement is never reached
+   97 |         Spark_Argon2id.Zeroize.Wipe (H0);
+      |         ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+
+spark_argon2id.adb:98:32: warning: this statement is never reached
+   98 |         Spark_Argon2id.Zeroize.Wipe (Final_Output);
+      |         ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+
+spark_argon2id.adb:99:18: warning: this statement is never reached
+   99 |         Success := False;
+      |         ~~~~~~~~^~~~~~~~
+spark_argon2id.adb:115:07: info: initialization of "H0" proved
+spark_argon2id.adb:116:32: info: length check proved
+spark_argon2id.adb:116:43: info: range check proved
+spark_argon2id.adb:120:59: info: range check proved
+spark_argon2id.adb:120:68: info: range check proved
+spark_argon2id.adb:122:25: info: assertion proved
+spark_argon2id.adb:123:10: info: precondition proved
+spark_argon2id.adb:129:37: info: range check proved
+spark_argon2id.adb:130:41: info: range check proved
+spark_argon2id.adb:131:41: info: range check proved
+spark_argon2id.adb:137:13: info: initialization of "Init_Blocks" proved
+spark_argon2id.adb:139:13: info: precondition proved
+spark_argon2id.adb:139:69: info: initialization check proved
+spark_argon2id.adb:140:24: info: index check proved
+spark_argon2id.adb:141:24: info: index check proved
+spark_argon2id.adb:147:30: info: precondition proved
+spark_argon2id.adb:149:32: info: range check proved
+
+spark_argon2id.adb:154:29: warning: statement has no effect
+  154 |      Spark_Argon2id.Zeroize.Wipe (H0);
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+
+spark_argon2id.adb:154:36: warning: "H0" is set by "Wipe" but not used after the call
+  154 |      Spark_Argon2id.Zeroize.Wipe (H0);
+      |                                   ^~
+
+spark_argon2id.adb:157:17: warning: this statement is never reached
+  157 |         Output := [others => 0];
+      |         ~~~~~~~^~~~~~~~~~~~~~~
+
+spark_argon2id.adb:158:32: warning: this statement is never reached
+  158 |         Spark_Argon2id.Zeroize.Wipe (H0);
+      |         ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+
+spark_argon2id.adb:159:18: warning: this statement is never reached
+  159 |         Success := False;
+      |         ~~~~~~~~^~~~~~~~
+spark_argon2id.ads:35:07: info: initialization of "Output" proved
+spark_argon2id.ads:36:07: info: initialization of "Success" proved
+spark_argon2id.ads:38:08: info: data dependencies proved
+spark_argon2id.ads:46:08: info: flow dependencies proved
+spark_argon2id.ads:48:19: info: postcondition proved
+spark_argon2id.ads:56:07: info: initialization of "Output" proved
+spark_argon2id.ads:60:07: info: initialization of "Success" proved
+spark_argon2id.ads:62:08: info: data dependencies proved
+spark_argon2id.ads:72:08: info: flow dependencies proved
+spark_argon2id.ads:74:19: info: postcondition proved
+spark_argon2id.ads:74:78: info: index check proved
+spark_argon2id-index.adb:21:30: info: range check proved
+spark_argon2id-index.adb:22:18: info: range check proved
+spark_argon2id-index.adb:34:07: info: initialization of "Ref_Lane" proved
+spark_argon2id-index.adb:38:34: info: division check proved
+spark_argon2id-index.adb:38:34: info: range check proved
+spark_argon2id-index.adb:59:07: info: initialization of "Ref_Area" proved
+spark_argon2id-index.adb:75:31: info: range check proved
+spark_argon2id-index.adb:81:40: info: overflow check proved
+spark_argon2id-index.adb:81:68: info: overflow check proved
+spark_argon2id-index.adb:81:76: info: range check proved
+spark_argon2id-index.adb:86:43: info: overflow check proved
+spark_argon2id-index.adb:86:71: info: range check proved
+spark_argon2id-index.adb:88:43: info: overflow check proved
+spark_argon2id-index.adb:88:43: info: range check proved
+spark_argon2id-index.adb:97:76: info: overflow check proved
+spark_argon2id-index.adb:97:84: info: range check proved
+spark_argon2id-index.adb:100:79: info: range check proved
+spark_argon2id-index.adb:102:51: info: range check proved
+spark_argon2id-index.adb:121:07: info: initialization of "X" proved
+spark_argon2id-index.adb:122:07: info: initialization of "Y" proved
+spark_argon2id-index.adb:123:07: info: initialization of "Z" proved
+spark_argon2id-index.adb:124:07: info: initialization of "Z_Nat" proved
+spark_argon2id-index.adb:125:07: info: initialization of "Relative_Pos" proved
+spark_argon2id-index.adb:130:20: info: division check proved
+spark_argon2id-index.adb:137:14: info: division check proved
+spark_argon2id-index.adb:184:25: info: range check proved
+spark_argon2id-index.adb:185:22: info: assertion proved
+spark_argon2id-index.adb:192:47: info: overflow check proved
+spark_argon2id-index.adb:192:47: info: range check proved
+spark_argon2id-index.adb:208:07: info: initialization of "Start_Position" proved
+spark_argon2id-index.adb:209:07: info: initialization of "Absolute_Position" proved
+spark_argon2id-index.adb:222:47: info: overflow check proved
+spark_argon2id-index.adb:223:28: info: division check proved
+spark_argon2id-index.adb:227:44: info: overflow check proved
+spark_argon2id-index.adb:228:28: info: division check proved
+spark_argon2id-index.adb:228:28: info: range check proved
+spark_argon2id-index.adb:231:22: info: assertion proved
+spark_argon2id-index.adb:232:22: info: assertion proved
+spark_argon2id-index.adb:238:25: info: assertion proved
+spark_argon2id-index.adb:239:25: info: assertion proved
+spark_argon2id-index.adb:240:25: info: assertion proved
+spark_argon2id-index.adb:278:22: info: assertion justified
+spark_argon2id-index.adb:279:51: info: overflow check proved
+spark_argon2id-index.adb:279:79: info: overflow check proved
+spark_argon2id-index.adb:301:07: info: initialization of "Temp_Block" proved
+spark_argon2id-index.adb:330:39: info: initialization check proved
+spark_argon2id-index.adb:332:28: info: precondition proved
+spark_argon2id-index.adb:334:28: info: non-aliasing of formal parameters "Y" and "Output" proved
+spark_argon2id-index.adb:334:28: info: initialization check proved
+spark_argon2id-index.adb:338:29: info: initialization check proved
+spark_argon2id-index.adb:339:28: info: precondition proved
+spark_argon2id-index.adb:358:07: info: initialization of "Temp_Block" proved
+spark_argon2id-index.adb:359:07: info: initialization of "Block_Offset" proved
+spark_argon2id-index.adb:363:29: info: division check proved
+spark_argon2id-index.adb:376:28: info: precondition proved
+spark_argon2id-index.adb:378:28: info: non-aliasing of formal parameters "Y" and "Output" proved
+spark_argon2id-index.adb:384:28: info: precondition proved
+spark_argon2id-index.adb:409:07: info: initialization of "Mode" proved
+spark_argon2id-index.adb:410:07: info: initialization of "Pseudo_Rand" proved
+spark_argon2id-index.adb:411:07: info: initialization of "J1" proved
+spark_argon2id-index.adb:412:07: info: initialization of "J2" proved
+spark_argon2id-index.adb:413:07: info: initialization of "Ref_Area_Size" proved
+spark_argon2id-index.adb:414:07: info: initialization of "Rel_Pos" proved
+spark_argon2id-index.adb:415:07: info: initialization of "Same_Lane" proved
+spark_argon2id-index.adb:424:10: info: precondition proved
+spark_argon2id-index.adb:438:24: info: precondition proved
+spark_argon2id-index.adb:441:22: info: assertion proved
+spark_argon2id-index.adb:444:18: info: precondition proved
+spark_argon2id-index.adb:447:22: info: assertion proved
+spark_argon2id-index.adb:448:22: info: assertion proved
+spark_argon2id-index.adb:448:32: info: precondition proved
+spark_argon2id-index.adb:454:25: info: assertion justified
+spark_argon2id-index.adb:459:25: info: assertion proved
+spark_argon2id-index.adb:460:25: info: assertion proved
+spark_argon2id-index.adb:464:20: info: precondition proved
+spark_argon2id-index.ads:39:12: info: range check proved
+spark_argon2id-index.ads:43:12: info: range check proved
+spark_argon2id-index.ads:78:07: info: initialization of "J1" proved
+spark_argon2id-index.ads:79:07: info: initialization of "J2" proved
+spark_argon2id-index.ads:81:07: info: data dependencies proved
+spark_argon2id-index.ads:82:17: info: postcondition proved
+spark_argon2id-index.ads:82:39: info: range check proved
+spark_argon2id-index.ads:83:27: info: range check proved
+spark_argon2id-index.ads:96:13: info: implicit aspect Always_Terminates on "Calculate_Ref_Lane" has been proved, subprogram will terminate
+spark_argon2id-index.ads:100:07: info: data dependencies proved
+spark_argon2id-index.ads:101:17: info: postcondition proved
+spark_argon2id-index.ads:122:13: info: implicit aspect Always_Terminates on "Calculate_Reference_Area_Size" has been proved, subprogram will terminate
+spark_argon2id-index.ads:127:07: info: data dependencies proved
+spark_argon2id-index.ads:134:17: info: postcondition proved
+spark_argon2id-index.ads:160:13: info: implicit aspect Always_Terminates on "Map_J1_To_Position" has been proved, subprogram will terminate
+spark_argon2id-index.ads:164:07: info: data dependencies proved
+spark_argon2id-index.ads:166:17: info: postcondition proved
+spark_argon2id-index.ads:181:13: info: implicit aspect Always_Terminates on "Calculate_Ref_Index" has been proved, subprogram will terminate
+spark_argon2id-index.ads:187:07: info: data dependencies proved
+spark_argon2id-index.ads:201:37: info: precondition proved
+spark_argon2id-index.ads:202:17: info: postcondition proved
+spark_argon2id-index.ads:205:49: info: overflow check proved
+spark_argon2id-index.ads:205:77: info: overflow check proved
+spark_argon2id-index.ads:237:07: info: data dependencies proved
+spark_argon2id-index.ads:242:17: info: postcondition proved
+spark_argon2id-index.ads:243:22: info: initialization check proved
+spark_argon2id-index.ads:244:22: info: initialization check proved
+spark_argon2id-index.ads:245:22: info: initialization check proved
+spark_argon2id-index.ads:246:22: info: initialization check proved
+spark_argon2id-index.ads:247:22: info: initialization check proved
+spark_argon2id-index.ads:248:22: info: initialization check proved
+spark_argon2id-index.ads:249:22: info: initialization check proved
+spark_argon2id-index.ads:250:22: info: initialization check proved
+spark_argon2id-index.ads:270:07: info: initialization of "Pseudo_Rand" proved
+spark_argon2id-index.ads:272:07: info: data dependencies proved
+spark_argon2id-index.ads:274:17: info: postcondition proved
+spark_argon2id-index.ads:274:58: info: division check proved
+spark_argon2id-index.ads:276:27: info: division check proved
+spark_argon2id-index.ads:304:07: info: initialization of "Ref_Lane" proved
+spark_argon2id-index.ads:305:07: info: initialization of "Ref_Index" proved
+spark_argon2id-index.ads:307:07: info: data dependencies proved
+spark_argon2id-index.ads:314:17: info: postcondition proved
+spark_argon2id-index.ads:316:43: info: overflow check proved
+spark_argon2id-index.ads:316:71: info: overflow check proved
+spark_argon2id-index.ads:336:13: info: implicit aspect Always_Terminates on "Ref_Index_Valid" has been proved, subprogram will terminate
+spark_argon2id-index.ads:345:50: info: overflow check proved
+spark_argon2id-index.ads:345:78: info: overflow check proved
+spark_argon2id-index.ads:351:07: info: data dependencies proved
+spark_argon2id-fill.adb:29:13: info: implicit aspect Always_Terminates on "Calculate_Prev_Index" has been proved, subprogram will terminate
+spark_argon2id-fill.adb:34:07: info: data dependencies proved
+spark_argon2id-fill.adb:36:17: info: postcondition proved
+spark_argon2id-fill.adb:43:07: info: initialization of "Current_Index" proved
+spark_argon2id-fill.adb:44:07: info: initialization of "Prev_Index" proved
+spark_argon2id-fill.adb:47:32: info: overflow check proved
+spark_argon2id-fill.adb:47:60: info: overflow check proved
+spark_argon2id-fill.adb:52:47: info: range check proved
+spark_argon2id-fill.adb:54:38: info: range check proved
+spark_argon2id-fill.adb:65:13: info: implicit aspect Always_Terminates on "Calculate_Current_Index" has been proved, subprogram will terminate
+spark_argon2id-fill.adb:70:07: info: data dependencies proved
+spark_argon2id-fill.adb:72:17: info: postcondition proved
+spark_argon2id-fill.adb:80:22: info: overflow check proved
+spark_argon2id-fill.adb:80:50: info: overflow check proved
+spark_argon2id-fill.adb:80:50: info: range check proved
+spark_argon2id-fill.adb:92:07: info: initialization of "Pos" proved
+spark_argon2id-fill.adb:104:07: info: initialization of "Ref_Lane" proved
+spark_argon2id-fill.adb:105:07: info: initialization of "Ref_Index" proved
+spark_argon2id-fill.adb:108:07: info: initialization of "Prev_Index" proved
+spark_argon2id-fill.adb:109:07: info: initialization of "Current_Index" proved
+spark_argon2id-fill.adb:112:07: info: initialization of "Prev_Block" proved
+spark_argon2id-fill.adb:113:07: info: initialization of "Ref_Block" proved
+spark_argon2id-fill.adb:114:07: info: initialization of "Output_Block" proved
+spark_argon2id-fill.adb:117:07: info: initialization of "Start_Index" proved
+spark_argon2id-fill.adb:118:07: info: initialization of "End_Index" proved
+spark_argon2id-fill.adb:156:19: info: precondition proved
+spark_argon2id-fill.adb:156:49: info: initialization check proved
+spark_argon2id-fill.adb:175:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:175:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:176:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:176:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:177:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:177:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:178:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:178:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:179:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:179:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:180:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:180:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:181:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:181:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:182:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:182:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:183:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:183:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:184:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:184:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:186:19: info: loop invariant preservation proved
+spark_argon2id-fill.adb:186:19: info: loop invariant initialization proved
+spark_argon2id-fill.adb:191:39: info: precondition proved
+spark_argon2id-fill.adb:191:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:191:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:191:70: info: range check proved
+spark_argon2id-fill.adb:192:39: info: precondition proved
+spark_argon2id-fill.adb:192:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:192:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:192:73: info: range check proved
+spark_argon2id-fill.adb:200:16: info: precondition proved
+spark_argon2id-fill.adb:203:50: info: precondition proved
+spark_argon2id-fill.adb:208:31: info: assertion proved
+spark_argon2id-fill.adb:209:31: info: assertion proved
+spark_argon2id-fill.adb:216:30: info: precondition proved
+spark_argon2id-fill.adb:217:31: info: assertion proved
+spark_argon2id-fill.adb:224:31: info: assertion proved
+spark_argon2id-fill.adb:225:31: info: assertion proved
+spark_argon2id-fill.adb:236:33: info: precondition proved
+spark_argon2id-fill.adb:237:31: info: assertion proved
+spark_argon2id-fill.adb:243:16: info: precondition proved
+spark_argon2id-fill.adb:248:31: info: assertion proved
+spark_argon2id-fill.adb:253:45: info: loop invariant preservation proved
+spark_argon2id-fill.adb:253:45: info: loop invariant initialization proved
+spark_argon2id-fill.adb:254:45: info: loop invariant initialization proved
+spark_argon2id-fill.adb:254:45: info: loop invariant preservation proved
+spark_argon2id-fill.adb:255:45: info: loop invariant initialization proved
+spark_argon2id-fill.adb:255:45: info: loop invariant preservation proved
+spark_argon2id-fill.adb:291:07: info: initialization of "Ref_Lane" proved
+spark_argon2id-fill.adb:292:07: info: initialization of "Ref_Index" proved
+spark_argon2id-fill.adb:293:07: info: initialization of "Prev_Index" proved
+spark_argon2id-fill.adb:294:07: info: initialization of "Current_Index" proved
+spark_argon2id-fill.adb:295:07: info: initialization of "Prev_Block" proved
+spark_argon2id-fill.adb:296:07: info: initialization of "Ref_Block" proved
+spark_argon2id-fill.adb:297:07: info: initialization of "Output_Block" proved
+spark_argon2id-fill.adb:298:07: info: initialization of "Start_Index" proved
+spark_argon2id-fill.adb:299:07: info: initialization of "End_Index" proved
+spark_argon2id-fill.adb:302:10: info: precondition proved
+spark_argon2id-fill.adb:302:40: info: initialization check proved
+spark_argon2id-fill.adb:314:33: info: loop invariant initialization proved
+spark_argon2id-fill.adb:314:33: info: loop invariant preservation proved
+spark_argon2id-fill.adb:315:33: info: loop invariant preservation proved
+spark_argon2id-fill.adb:315:33: info: loop invariant initialization proved
+spark_argon2id-fill.adb:316:33: info: loop invariant initialization proved
+spark_argon2id-fill.adb:316:33: info: loop invariant preservation proved
+spark_argon2id-fill.adb:317:33: info: loop invariant preservation proved
+spark_argon2id-fill.adb:317:33: info: loop invariant initialization proved
+spark_argon2id-fill.adb:318:33: info: loop invariant initialization proved
+spark_argon2id-fill.adb:318:33: info: loop invariant preservation proved
+spark_argon2id-fill.adb:319:33: info: loop invariant initialization proved
+spark_argon2id-fill.adb:319:33: info: loop invariant preservation proved
+spark_argon2id-fill.adb:320:33: info: loop invariant initialization proved
+spark_argon2id-fill.adb:320:33: info: loop invariant preservation proved
+spark_argon2id-fill.adb:321:33: info: precondition proved
+spark_argon2id-fill.adb:321:33: info: loop invariant initialization proved
+spark_argon2id-fill.adb:321:33: info: loop invariant preservation proved
+spark_argon2id-fill.adb:321:64: info: range check proved
+spark_argon2id-fill.adb:322:33: info: precondition proved
+spark_argon2id-fill.adb:322:33: info: loop invariant preservation proved
+spark_argon2id-fill.adb:322:33: info: loop invariant initialization proved
+spark_argon2id-fill.adb:322:67: info: range check proved
+spark_argon2id-fill.adb:326:10: info: precondition proved
+spark_argon2id-fill.adb:329:44: info: precondition proved
+spark_argon2id-fill.adb:334:25: info: assertion proved
+spark_argon2id-fill.adb:335:25: info: assertion proved
+spark_argon2id-fill.adb:337:24: info: precondition proved
+spark_argon2id-fill.adb:338:25: info: assertion proved
+spark_argon2id-fill.adb:341:25: info: assertion proved
+spark_argon2id-fill.adb:342:25: info: assertion proved
+spark_argon2id-fill.adb:344:27: info: precondition proved
+spark_argon2id-fill.adb:345:25: info: assertion proved
+spark_argon2id-fill.adb:347:10: info: precondition proved
+spark_argon2id-fill.adb:348:25: info: assertion proved
+spark_argon2id-fill.adb:352:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:352:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:353:39: info: loop invariant preservation proved
+spark_argon2id-fill.adb:353:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:354:39: info: loop invariant initialization proved
+spark_argon2id-fill.adb:354:39: info: loop invariant preservation proved
+spark_argon2id-fill.ads:110:07: info: data dependencies proved
+spark_argon2id-fill.ads:122:07: info: data dependencies proved
++===========================GNAT BUG DETECTED==============================+
+| 1.0 (spark) GCC error:                                                   |
+| Connection error: client_connect: connection failed: No such file or     |
+|     directory (connect,) (socket_name=/var/folders/bg/pt9l6y1j47q642kp3z5blrmh0000gn/T/why3server4134968096.sock)
+.
+                                                                           |
+| No source file position information available                            |
+| Compiling /Users/sicarii/Desktop/Desktop - MacBook Pro/spark_argon2id/src/spark_argon2id-mix.adb|
+| Please submit a bug report; see https://gcc.gnu.org/bugs/ .              |
+| Use a subject line meaningful to you and us to track the bug.            |
+| Include the entire contents of this bug box in the report.               |
+| Include the exact command that you entered.                              |
+| Also include sources listed below.                                       |
++==========================================================================+
+
+Please include these source files with error report
+Note that list may not be accurate in some cases,
+so please double check that the problem can still
+be reproduced with the set of files listed.
+Consider also -gnatd.n switch (see debug.adb).
+
+/Users/sicarii/Desktop/Desktop - MacBook Pro/spark_argon2id/src/spark_argon2id-mix.adb
+/Users/sicarii/Desktop/Desktop - MacBook Pro/spark_argon2id/src/spark_argon2id-mix.ads
+/Users/sicarii/Desktop/Desktop - MacBook Pro/spark_argon2id/src/spark_argon2id.ads
+/Users/sicarii/Desktop/Desktop - MacBook Pro/spark_argon2id/src/spark_argon2id-internal_types.ads
+
+spark_argon2id-mix.adb:16:13: info: implicit aspect Always_Terminates on "Rotr32" has been proved, subprogram will terminate
+spark_argon2id-mix.adb:17:19: info: data dependencies proved
+spark_argon2id-mix.adb:19:13: info: implicit aspect Always_Terminates on "Rotr24" has been proved, subprogram will terminate
+spark_argon2id-mix.adb:20:19: info: data dependencies proved
+spark_argon2id-mix.adb:22:13: info: implicit aspect Always_Terminates on "Rotr16" has been proved, subprogram will terminate
+spark_argon2id-mix.adb:23:19: info: data dependencies proved
+spark_argon2id-mix.adb:25:13: info: implicit aspect Always_Terminates on "Rotr63" has been proved, subprogram will terminate
+spark_argon2id-mix.adb:26:19: info: data dependencies proved
+spark_argon2id-mix.adb:60:07: info: data dependencies proved
+
+spark_argon2id-mix.adb:62:07: warning: postcondition does not check the outcome of calling "GB"
+   62 |      Post   => V'Length = 128,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~
+spark_argon2id-mix.adb:66:07: info: initialization of "A_Mod" proved
+spark_argon2id-mix.adb:66:14: info: initialization of "B_Mod" proved
+spark_argon2id-mix.adb:66:21: info: initialization of "C_Mod" proved
+spark_argon2id-mix.adb:66:28: info: initialization of "D_Mod" proved
+spark_argon2id-mix.adb:69:07: info: initialization of "A_Lo" proved
+spark_argon2id-mix.adb:69:13: info: initialization of "B_Lo" proved
+spark_argon2id-mix.adb:69:19: info: initialization of "C_Lo" proved
+spark_argon2id-mix.adb:69:25: info: initialization of "D_Lo" proved
+spark_argon2id-mix.adb:158:07: info: data dependencies proved
+
+spark_argon2id-mix.adb:160:07: warning: postcondition does not check the outcome of calling "P"
+  160 |      Post   => R'Length = 128
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~
+spark_argon2id-mix.adb:168:10: info: data dependencies proved
+
+spark_argon2id-mix.adb:170:10: warning: postcondition does not check the outcome of calling "Blake2_Round"
+  170 |         Post   => R'Length = 128,
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+
+spark_argon2id-mix.adb:195:10: warning: pragma "Loop_Optimize" ignored (not yet supported)
+  195 |         pragma Loop_Optimize (No_Unroll);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+spark_argon2id-mix.adb:217:10: warning: pragma "Loop_Optimize" ignored (not yet supported)
+  217 |         pragma Loop_Optimize (No_Unroll);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+spark_argon2id-mix.adb:266:07: warning: initialization of "R" has no effect
+  266 |      R : Block := Zero_Block;  -- Temporary for X ⊕ Y
+      |      ^~~~~~~~~~~~~~~~~~~~~~~
+
+spark_argon2id-mix.adb:269:14: warning: unused assignment
+  269 |      Output := Zero_Block;
+      |      ~~~~~~~^~~~~~~~~~~~~
+
+spark_argon2id-mix.adb:276:10: warning: pragma "Loop_Optimize" ignored (not yet supported)
+  276 |         pragma Loop_Optimize (No_Unroll);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+spark_argon2id-mix.adb:293:10: warning: pragma "Loop_Optimize" ignored (not yet supported)
+  293 |         pragma Loop_Optimize (No_Unroll);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+spark_argon2id-mix.ads:81:07: info: initialization of "Output" proved
+spark_argon2id-mix.ads:83:07: info: data dependencies proved
+
+spark_argon2id-mix.ads:86:07: warning: postcondition does not check the outcome of calling "G"
+   86 |      Post   => Output'Length = 128;
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation abandoned
+Summary logged in /Users/sicarii/Desktop/Desktop - MacBook Pro/spark_argon2id/obj/gnatprove/gnatprove.out
+gnatprove: error during flow analysis and proof
+ERROR: Command ["gnatprove", "-P", "spark_argon2id.gpr", "--level=2", "--timeout=120", "--report=all", "--warnings=continue"] exited with code 1

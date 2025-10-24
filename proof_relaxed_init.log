@@ -1,0 +1,11 @@
+Phase 1 of 3: generation of data representation information ...
+generation of data representation information failed
+continuing analysis with partial data representation
+for details, see log file gnatprove/data_representation_generation.log
+Phase 2 of 3: generation of Global contracts ...
+
+spark_argon2id-finalize.adb:70:14: error: "Block_To_Bytes" conflicts with declaration at spark_argon2id-finalize.ads:110
+   70 |   procedure Block_To_Bytes (
+      |             ^~~~~~~~~~~~~~
+gnatprove: error during generation of Global contracts
+ERROR: Command ["gnatprove", "-P", "spark_argon2id.gpr", "--level=2", "--timeout=120", "--report=all", "--warnings=continue"] exited with code 1

@@ -1,0 +1,55 @@
+-- SPDX-License-Identifier: Apache-2.0
+--
+-- GPR project file for RFC 9106 KAT test harness
+
+with "../spark_argon2id.gpr";
+
+project Test_RFC9106_KAT is
+
+   for Source_Dirs use (".");
+   for Object_Dir use "obj";
+   for Exec_Dir use "obj";
+   for Main use ("test_rfc9106_kat.adb");
+   for Create_Missing_Dirs use "True";
+
+   package Builder is
+      -- Post-build hook: Fix duplicate LC_RPATH on macOS
+      for Global_Compilation_Switches ("Ada") use ();
+      for Executable ("test_rfc9106_kat.adb") use "test_rfc9106_kat";
+   end Builder;
+
+   type Build_Mode is ("debug", "release");
+   Mode : Build_Mode := external ("BUILD_MODE", "debug");
+
+   package Compiler is
+      case Mode is
+         when "debug" =>
+            for Default_Switches ("Ada") use (
+               "-gnat2022",
+               "-gnatwa",
+               "-gnata",
+               "-gnato",
+               "-gnatf",
+               "-gnatVa",
+               "-g",
+               "-O0"
+            );
+         when "release" =>
+            for Default_Switches ("Ada") use (
+               "-gnat2022",
+               "-gnatwa",
+               "-gnata",
+               "-gnato",
+               "-gnatf",
+               "-gnatVa",
+               "-O2",
+               "-gnatn"
+            );
+      end case;
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("Ada") use ("-Es");
+   end Binder;
+
+end Test_RFC9106_KAT;
