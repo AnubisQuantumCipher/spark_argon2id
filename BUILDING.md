@@ -394,9 +394,9 @@ spark_argon2id/
 
 ## Next Steps
 
-- Review [ARCHITECTURE.md](ARCHITECTURE.md) for design details
-- Check [SECURITY.md](SECURITY.md) for security properties
-- See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines
+- Review [ARCHITECTURE.md](docs/ARCHITECTURE.md) for design details
+- Check [SECURITY.md](docs/SECURITY.md) for security properties
+- See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for contribution guidelines
 
 ## Gold Certification Checklist
 

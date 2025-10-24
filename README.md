@@ -1043,7 +1043,7 @@ alr exec -- gnatprove -P spark_argon2id.gpr --level=1
 
 **Problem**: "Unproved check" in BLAKE2b rotation
 
-**Solution**: These are intentional (documented in LIMITATIONS.md). GNATprove cannot prove 64-bit rotation safety due to tool limitations. Manually verified as correct.
+**Solution**: These are intentional (documented in docs/LIMITATIONS.md). GNATprove cannot prove 64-bit rotation safety due to tool limitations. Manually verified as correct.
 
 ### Array Aggregate Warnings
 
@@ -1060,13 +1060,13 @@ alr exec -- gnatprove -P spark_argon2id.gpr --level=1
 | Document | Purpose | Length | Target Audience |
 |----------|---------|--------|-----------------|
 | **README.md** (this file) | Overview, quick start | 2,100 lines | All users |
-| **ARCHITECTURE.md** | Design, module structure | 450 lines | Developers |
+| **docs/ARCHITECTURE.md** | Design, module structure | 450 lines | Developers |
 | **BUILDING.md** | Build instructions, CI | 380 lines | DevOps, integrators |
-| **PERFORMANCE.md** | Performance analysis | 520 lines | Engineers |
-| **LIMITATIONS.md** | Design constraints | 440 lines | Security auditors |
-| **SECURITY.md** | Security policy | 180 lines | Security team |
-| **CONTRIBUTING.md** | Contribution guidelines | 290 lines | Contributors |
-| **PRODUCTION_MODE_FIX.md** | v1.3.0 changes | 280 lines | Upgrading users |
+| **docs/PERFORMANCE.md** | Performance analysis | 520 lines | Engineers |
+| **docs/LIMITATIONS.md** | Design constraints | 440 lines | Security auditors |
+| **docs/SECURITY.md** | Security policy | 180 lines | Security team |
+| **docs/CONTRIBUTING.md** | Contribution guidelines | 290 lines | Contributors |
+| **docs/PRODUCTION_MODE_FIX.md** | v1.3.0 changes | 280 lines | Upgrading users |
 
 ### External References
 
@@ -1079,7 +1079,7 @@ alr exec -- gnatprove -P spark_argon2id.gpr --level=1
 
 ## Contributing
 
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Contributions are welcome! Please read [CONTRIBUTING.md](docs/CONTRIBUTING.md) for guidelines.
 
 **Key areas for contribution**:
 - Performance optimization (while maintaining proofs)
@@ -1128,7 +1128,7 @@ Apache License 2.0. See [LICENSE](LICENSE) for full text.
 
 | Version | Date | Changes | Migration Required |
 |---------|------|---------|-------------------|
-| **v1.3.0** | 2025-10-24 | Production mode (1 GiB) default, heap allocation | Yes (see PRODUCTION_MODE_FIX.md) |
+| **v1.3.0** | 2025-10-24 | Production mode (1 GiB) default, heap allocation | Yes (see docs/PRODUCTION_MODE_FIX.md) |
 | **v1.2.0** | 2025-10-23 | Added K/X support, multi-lane | No |
 | **v1.1.0** | 2025-10-22 | Build cleanup, smoke tests | No |
 | **v1.0.0** | 2025-10-20 | Initial release | N/A |
@@ -1145,7 +1145,7 @@ Apache License 2.0. See [LICENSE](LICENSE) for full text.
 
 **Releases**: https://github.com/AnubisQuantumCipher/spark_argon2id/releases
 
-**Security**: See [SECURITY.md](SECURITY.md) for vulnerability reporting
+**Security**: See [SECURITY.md](docs/SECURITY.md) for vulnerability reporting
 
 ---
 

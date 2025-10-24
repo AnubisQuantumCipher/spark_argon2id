@@ -91,8 +91,16 @@ FILES=(
     # Documentation
     "README.md"
     "BUILDING.md"
-    "ADA_2022_REQUIREMENT.md"
+    "VERIFY.md"
     "LICENSE"
+    "docs/ADA_2022_REQUIREMENT.md"
+    "docs/ARCHITECTURE.md"
+    "docs/CHANGELOG.md"
+    "docs/CODE_OF_CONDUCT.md"
+    "docs/CONTRIBUTING.md"
+    "docs/LIMITATIONS.md"
+    "docs/PERFORMANCE.md"
+    "docs/SECURITY.md"
 
     # Tests
     "tests/test_spark_argon2id.adb"
@@ -102,6 +110,7 @@ FILES=(
 
     # Scripts
     "scripts/verify_checksums.sh"
+    "scripts/ci_build.sh"
     "fix_macos_rpath.sh"
     "tests/profile_memory.sh"
     "tests/run_smoke.sh"
