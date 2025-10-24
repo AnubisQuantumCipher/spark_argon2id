@@ -425,7 +425,6 @@ c8a92f8c506fc40bfb6866c669a6b3243648f1798d354a16c99b82c5e3da003f  src/spark_argo
 # Build System
 9572664b72d8cf61e024e7fa46494165f9300684c5212753e6bfea57de1fca91  spark_argon2id.gpr
 34ddf1f204614b7211aac3d051fd43dc1d0aeab9af31cd4ff782735687d8d6e3  alire.toml
-9fdd7b2fc54abddbed59a490c8fefca484729829aba8cdd6e9620e20a17071ae  Makefile
 ```
 
 **Manual Verification**:
@@ -439,10 +438,10 @@ sha256sum src/spark_argon2id.ads
 # Compare output against hash above
 ```
 
-**Files Verified** (43 total):
+**Files Verified** (52 total):
 - 26 Ada source files (all cryptographic code)
-- 3 build files (GPR, alire.toml, Makefile)
-- 4 documentation files
+- 2 build files (GPR, alire.toml)
+- 12 documentation files
 - 4 test harnesses
 - 6 utility scripts
 
