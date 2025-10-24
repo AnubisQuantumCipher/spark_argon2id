@@ -189,10 +189,10 @@ If you must install manually:
 
 | Platform | Alire Support | Manual Install | Notes |
 |----------|---------------|----------------|-------|
-| **macOS** | ✅ Full | ⚠️ Difficult | Use Alire (brew install alire) |
-| **Linux** | ✅ Full | ⚠️ Moderate | Use Alire (pre-built binaries) |
-| **Windows** | ✅ Full | ⚠️ Difficult | Use Alire (MSYS2/MinGW) |
-| **FreeBSD** | ⚠️ Limited | ⚠️ Difficult | May require building from source |
+| **macOS** | Full Full | Limited Difficult | Use Alire (brew install alire) |
+| **Linux** | Full Full | Limited Moderate | Use Alire (pre-built binaries) |
+| **Windows** | Full Full | Limited Difficult | Use Alire (MSYS2/MinGW) |
+| **FreeBSD** | Limited Limited | Limited Difficult | May require building from source |
 
 ---
 

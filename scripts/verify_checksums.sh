@@ -23,7 +23,7 @@ echo ""
 
 # Check if SHA256SUMS exists
 if [ ! -f "$CHECKSUMS_FILE" ]; then
-    echo "❌ ERROR: SHA256SUMS file not found!"
+    echo "ERROR: ERROR: SHA256SUMS file not found!"
     echo ""
     echo "The checksums file is missing. This could mean:"
     echo "  1. You downloaded an incomplete release"
@@ -51,7 +51,7 @@ case "$(uname -s)" in
         SHA256="sha256sum -c"
         ;;
     *)
-        echo "❌ ERROR: Unsupported platform: $(uname -s)"
+        echo "ERROR: ERROR: Unsupported platform: $(uname -s)"
         echo ""
         echo "Supported platforms: macOS (Darwin), Linux"
         exit 1
@@ -87,7 +87,7 @@ while IFS= read -r line; do
     FILE=$(echo "$line" | awk '{print $2}')
 
     if [ ! -f "$FILE" ]; then
-        echo "  ❌ MISSING: $FILE"
+        echo "  ERROR: MISSING: $FILE"
         ((MISSING++))
         continue
     fi
@@ -106,7 +106,7 @@ while IFS= read -r line; do
         echo "  ✓ $FILE"
         ((PASSED++))
     else
-        echo "  ❌ MISMATCH: $FILE"
+        echo "  ERROR: MISMATCH: $FILE"
         echo "     Expected: $HASH"
         echo "     Got:      $COMPUTED"
         ((FAILED++))
@@ -128,9 +128,9 @@ fi
 echo ""
 
 if [ $FAILED -gt 0 ]; then
-    echo "❌ VERIFICATION FAILED"
+    echo "ERROR: VERIFICATION FAILED"
     echo ""
-    echo "⚠️  WARNING: Some files have incorrect checksums!"
+    echo "WARNING: WARNING: Some files have incorrect checksums!"
     echo ""
     echo "This could indicate:"
     echo "  • File corruption during download"
@@ -143,7 +143,7 @@ if [ $FAILED -gt 0 ]; then
     echo ""
     exit 1
 elif [ $MISSING -gt 0 ]; then
-    echo "⚠️  VERIFICATION WARNING"
+    echo "WARNING: VERIFICATION WARNING"
     echo ""
     echo "Some files are missing. This is expected if you:"
     echo "  • Have a partial checkout"
@@ -153,7 +153,7 @@ elif [ $MISSING -gt 0 ]; then
     echo ""
     exit 2
 else
-    echo "✅ VERIFICATION SUCCESSFUL"
+    echo "VERIFICATION SUCCESSFUL"
     echo ""
     echo "All files verified. Source integrity confirmed."
     echo ""

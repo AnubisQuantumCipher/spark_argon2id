@@ -40,7 +40,7 @@ build:
 	@echo " Building spark_argon2id ($(BUILD_MODE) mode)"
 	@echo "════════════════════════════════════════════════════════════════"
 	alr build -- -XBUILD_MODE=$(BUILD_MODE) -XPROOF=$(PROOF)
-	@echo "✅ Build complete"
+	@echo "Build complete"
 	@echo ""
 
 test: build
@@ -54,7 +54,7 @@ test: build
 	@echo " Running smoke test"
 	@echo "════════════════════════════════════════════════════════════════"
 	cd tests && ./obj/test_spark_argon2id
-	@echo "✅ Smoke test passed"
+	@echo "Smoke test passed"
 	@echo ""
 
 kat: build
@@ -68,17 +68,17 @@ kat: build
 	@echo " Running RFC 9106 Known Answer Tests"
 	@echo "════════════════════════════════════════════════════════════════"
 	cd tests && ./obj/test_rfc9106_kat
-	@echo "✅ KAT tests complete"
+	@echo "KAT tests complete"
 	@echo ""
 
 test-all: test kat
 	@echo "════════════════════════════════════════════════════════════════"
 	@echo " All Tests Complete"
 	@echo "════════════════════════════════════════════════════════════════"
-	@echo "✅ Smoke test: PASSED"
-	@echo "✅ RFC 9106 KAT: 8/8 PASSED"
+	@echo "Smoke test: PASSED"
+	@echo "RFC 9106 KAT: 8/8 PASSED"
 	@echo ""
-	@echo "✅ All tests passed! Implementation is RFC 9106 compliant."
+	@echo "All tests passed! Implementation is RFC 9106 compliant."
 	@echo ""
 
 clean:
@@ -86,12 +86,12 @@ clean:
 	rm -rf obj/ alire/
 	rm -rf tests/obj/
 	rm -rf config/
-	@echo "✅ Clean complete"
+	@echo "Clean complete"
 
 format:
 	@echo "Formatting source code..."
 	alr exec -- gnatformat -P spark_argon2id.gpr -U
-	@echo "✅ Format complete"
+	@echo "Format complete"
 
 prove:
 	@echo "════════════════════════════════════════════════════════════════"

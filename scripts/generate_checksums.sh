@@ -133,7 +133,7 @@ echo "Files checksummed: $FOUND"
 if [ $MISSING -gt 0 ]; then
     echo "Files missing:     $MISSING"
     echo ""
-    echo "⚠️  WARNING: Some expected files were not found."
+    echo "WARNING: WARNING: Some expected files were not found."
 fi
 echo ""
 echo "Checksums written to: SHA256SUMS"

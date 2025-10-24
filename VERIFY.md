@@ -10,9 +10,9 @@
 Since spark_argon2id is open-source software and not digitally signed with code signing certificates, we provide **SHA256 checksums** to verify the integrity of your download.
 
 This verification ensures:
-- ✅ Files were not corrupted during download
-- ✅ Source code has not been tampered with
-- ✅ You have the official release from the AnubisQuantumCipher repository
+- PASS Files were not corrupted during download
+- PASS Source code has not been tampered with
+- PASS You have the official release from the AnubisQuantumCipher repository
 
 ---
 
@@ -29,7 +29,7 @@ cd spark_argon2id
 
 **Expected output:**
 ```
-✅ VERIFICATION SUCCESSFUL
+PASS VERIFICATION SUCCESSFUL
 
 All files verified. Source integrity confirmed.
 ```
@@ -53,7 +53,7 @@ https://github.com/AnubisQuantumCipher/spark_argon2id
 https://github.com/AnubisQuantumCipher/spark_argon2id/releases
 ```
 
-⚠️ **Never download from unofficial sources, mirrors, or third parties.**
+WARNING **Never download from unofficial sources, mirrors, or third parties.**
 
 ### Step 2: Verify Git Clone (Optional)
 
@@ -82,7 +82,7 @@ This script:
 
 ### Step 4: Review Results
 
-**✅ Success:**
+**PASS Success:**
 ```
 ================================================
  Verification Results
@@ -90,27 +90,27 @@ This script:
 Total files:    45
 Verified:       45
 
-✅ VERIFICATION SUCCESSFUL
+PASS VERIFICATION SUCCESSFUL
 
 All files verified. Source integrity confirmed.
 ```
 
-**❌ Failure (Hash Mismatch):**
+**FAIL Failure (Hash Mismatch):**
 ```
-  ❌ MISMATCH: src/spark_argon2id.adb
+  FAIL MISMATCH: src/spark_argon2id.adb
 
-❌ VERIFICATION FAILED
+FAIL VERIFICATION FAILED
 
-⚠️  WARNING: Some files have incorrect checksums!
+WARNING  WARNING: Some files have incorrect checksums!
 ```
 
 **Action:** Delete the download and re-download from official source.
 
-**⚠️ Warning (Missing Files):**
+**WARNING Warning (Missing Files):**
 ```
-  ❌ MISSING: src/some_file.adb
+  FAIL MISSING: src/some_file.adb
 
-⚠️ VERIFICATION WARNING
+WARNING VERIFICATION WARNING
 
 Some files are missing.
 ```
@@ -243,13 +243,13 @@ For open-source projects:
 ### Threat Model
 
 **SHA256 checksums protect against:**
-- ✅ Download corruption (network errors, disk errors)
-- ✅ Post-download tampering (malware, compromised mirrors)
-- ✅ Incomplete downloads (missing files)
+- PASS Download corruption (network errors, disk errors)
+- PASS Post-download tampering (malware, compromised mirrors)
+- PASS Incomplete downloads (missing files)
 
 **SHA256 checksums DO NOT protect against:**
-- ❌ Compromised official repository (attacker updates both source AND checksums)
-- ❌ Supply chain attacks on dependencies (Alire packages)
+- FAIL Compromised official repository (attacker updates both source AND checksums)
+- FAIL Supply chain attacks on dependencies (Alire packages)
 
 **Additional protections:**
 - Review git commit history for suspicious changes
@@ -356,10 +356,10 @@ For maintainers creating official releases:
 ### Q: Do I need to verify every time?
 
 **A:** Verify:
-- ✅ First download
-- ✅ After major updates
-- ✅ Before production deployment
-- ✅ If suspicious of tampering
+- PASS First download
+- PASS After major updates
+- PASS Before production deployment
+- PASS If suspicious of tampering
 
 Skip verification for trusted development environments.
 
